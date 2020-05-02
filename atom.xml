@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ygwbert.github.io/</id>
     <title>ygwbert</title>
-    <updated>2020-05-02T14:09:24.334Z</updated>
+    <updated>2020-05-02T23:58:16.090Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ygwbert.github.io/"/>
     <link rel="self" href="https://ygwbert.github.io/atom.xml"/>
@@ -10,6 +10,26 @@
     <logo>https://ygwbert.github.io/images/avatar.png</logo>
     <icon>https://ygwbert.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, ygwbert</rights>
+    <entry>
+        <title type="html"><![CDATA[试一试高亮功能]]></title>
+        <id>https://ygwbert.github.io/post/shi-yi-shi-gao-liang-gong-neng/</id>
+        <link href="https://ygwbert.github.io/post/shi-yi-shi-gao-liang-gong-neng/">
+        </link>
+        <updated>2020-05-02T23:32:32.000Z</updated>
+        <content type="html"><![CDATA[<p>下面是一段代码：</p>
+<pre><code>import java.util.Scanner;
+public class ScannerTest {
+    public static void main(String[] args){
+        Scanner scanner=new Scanner(System.in);
+        System.out.print(&quot;请输入一个数&quot;);
+        int a=scanner.nextInt();
+        System.out.printf(&quot;%d的平方是%d\n&quot;,a,a*a);
+    }
+}
+</code></pre>
+<p>支持markdown语法，所以编辑时可用markdown语法编辑，缺点是在这个编辑时并未高亮，所以还是得在本地编辑器上编辑好了再上传</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[小白如何制作一个个人网站]]></title>
         <id>https://ygwbert.github.io/post/xiao-bai-ru-he-zhi-zuo-yi-ge-ge-ren-wang-zhan/</id>
