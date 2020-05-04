@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ygwbert.github.io/</id>
     <title>ygwbert</title>
-    <updated>2020-05-04T13:13:47.932Z</updated>
+    <updated>2020-05-04T13:14:52.106Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ygwbert.github.io/"/>
     <link rel="self" href="https://ygwbert.github.io/atom.xml"/>
@@ -42,60 +42,6 @@ b = j;<br>
 System.out.println(&quot;最接近0.618的是&quot; + a + &quot;除以&quot; + b + &quot;，商为&quot; + a/b + &quot;与0.618差为&quot; + min);<br>
 ...</p>
 <p>一定要细心，break将会跳出内层for循环的本轮所有循环，这显然不对，应该用continue只跳这一次循环。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[学习小tips]]></title>
-        <id>https://ygwbert.github.io/post/xue-xi-xiao-tips/</id>
-        <link href="https://ygwbert.github.io/post/xue-xi-xiao-tips/">
-        </link>
-        <updated>2020-05-03T11:25:40.000Z</updated>
-        <content type="html"><![CDATA[<p>1、bin文件夹，binary的缩写，代表可执行的二进制文件，dll、exe格式；<br>
-lib文件夹为库文件，lib格式<br>
-src文件夹，源代码文件夹<br>
-2、jre：java运行环境，java runtime environment，若仅仅要运行java程序就要这个即可<br>
-，jdk：java开发包，包含了jre和其他的一些开发工具包<br>
-sdk 软件开发工具包，例如jdk是一种sdk</p>
-<p>3、IDEA在安装目录bin目录下有34位和64位的exe快捷键，在exe下有一个配置信息文件，如果电脑内存大于8G，且要求开发使用速度更快的话则可以修改该信息  视频教学连接https://www.bilibili.com/video/BV1PW411X75p?p=5 P5</p>
-<p>4、如果IDEA配置文件不小心搞坏了，可以到这个目录底下删掉两个文件夹，重启IDEA，则会重新生成配置信息C:\Users\16432.IntelliJIdea2018.3</p>
-<p>5、IDEA框架为一个顶级project，下分多个module，对应分布式部署，</p>
-<p>6、实际开发过程中，必须记住IDE的快捷键加快开发速度，</p>
-<p>7、代码模板，简化代码量，settings菜单栏下，<br>
-（1）general菜单栏下有一个postfix completion，里面的模板不可更改<br>
-（2）code style菜单栏下有一个live templates，里面的模板可以自定义更改</p>
-<p>常用需要记忆的模板：<br>
-public static void main:  psvm+回车<br>
-System.out.println(&quot;&quot;)：sout+回车<br>
-fori</p>
-<p>8、成员方法一般是一种动作，方法名以动词命名，驼峰命名法</p>
-<p>9、java基本类型赋值，字面值赋值，字面值：<br>
-0x代表十六进制<br>
-0开头代表八进制<br>
-0b开头代表二进制<br>
-f后置代表float类型<br>
-L后置代表long类型<br>
-3.14e2  =  3.14*10^2 = 314   科学计数法的字面值</p>
-<p>\t 制表符，多个输出每一个后面加制表符则会制成表格<br>
-\r  carriage return 马车反转，回车符，表示光标换到此行开头<br>
-\n   new Line简称换行符，表示此行结束后，光标跳到下一行（本义不一定跳到下一行行首，仅仅只指换到下一行）<br>
-\r\n二者一般一起用，表示光标跳到下一行，且在下一行行首<br>
-一般来说不同操作系统二者含义不一样，Win系统为本义，UNIX系的操作系统\n就代表回车+换行，MAC系统\r代表回车+换行</p>
-<p>10、变量命名规则<br>
-1）字母或下划线或$符号作为开头，再加一个数字可作为变量名的组成<br>
-2）使用完整的英文名字作为变量名，不要用缩写，关键词不可单独使用，可以加上其他字符变成其他变量<br>
-3）中文也可以作为变量名，但在实际中不能这么使用</p>
-<p>11、作用域<br>
-类中声明的变量作用域为整个类中间<br>
-局部变量是指成员方法中声明的变量</p>
-<p>12、final修饰一个变量时，该变量只有一次赋值机会<br>
-final int i = 5；final修饰方法的形式参数时，调用时赋予的实参值就是最后一次赋值，再对这个形参进行更改就无法改变其值</p>
-<p>13利用Scanner类进行控制台读取值，先读取整型数字之后再读取字符串时，要用两次nextLine()方法，这是因为nextInt()只读取数字，不会读取回车换行符，所以第一次nextLine()方法读取回车换行</p>
-<p>14、println()方法中，+号前后有字符串String类时，加号代表字符串连接符号，只有数字时则代表运算符，如：<br>
-println(3+4+&quot;abc&quot;);  输出7abc</p>
-<p>15、长路与a&amp;b，短路与c&amp;&amp;d，长路与中，a和b都将会被运算后得出布尔值，短路与c为false时d不计算，或相同； 异或符^，相同为假，不同为真true</p>
-<p>16、双重循环，想要从内部循环的运算结果来决定是否退外部循环有两种做法：<br>
-1、全局布尔变量，内部循环控制其值，外部循环每次检查<br>
-2、设置标签，break 标签</p>
 ]]></content>
     </entry>
     <entry>
@@ -161,6 +107,60 @@ public class ScannerTest {
 <!-- more -->
 <p>第二步下载gridea客户端，利用该客户端进行傻瓜式博客发布<br>
 <img src="https://ygwbert.github.io//post-images/1588396572188.png" alt="" loading="lazy"></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[学习小tips]]></title>
+        <id>https://ygwbert.github.io/post/xue-xi-xiao-tips/</id>
+        <link href="https://ygwbert.github.io/post/xue-xi-xiao-tips/">
+        </link>
+        <updated>2019-03-02T11:25:40.000Z</updated>
+        <content type="html"><![CDATA[<p>1、bin文件夹，binary的缩写，代表可执行的二进制文件，dll、exe格式；<br>
+lib文件夹为库文件，lib格式<br>
+src文件夹，源代码文件夹<br>
+2、jre：java运行环境，java runtime environment，若仅仅要运行java程序就要这个即可<br>
+，jdk：java开发包，包含了jre和其他的一些开发工具包<br>
+sdk 软件开发工具包，例如jdk是一种sdk</p>
+<p>3、IDEA在安装目录bin目录下有34位和64位的exe快捷键，在exe下有一个配置信息文件，如果电脑内存大于8G，且要求开发使用速度更快的话则可以修改该信息  视频教学连接https://www.bilibili.com/video/BV1PW411X75p?p=5 P5</p>
+<p>4、如果IDEA配置文件不小心搞坏了，可以到这个目录底下删掉两个文件夹，重启IDEA，则会重新生成配置信息C:\Users\16432.IntelliJIdea2018.3</p>
+<p>5、IDEA框架为一个顶级project，下分多个module，对应分布式部署，</p>
+<p>6、实际开发过程中，必须记住IDE的快捷键加快开发速度，</p>
+<p>7、代码模板，简化代码量，settings菜单栏下，<br>
+（1）general菜单栏下有一个postfix completion，里面的模板不可更改<br>
+（2）code style菜单栏下有一个live templates，里面的模板可以自定义更改</p>
+<p>常用需要记忆的模板：<br>
+public static void main:  psvm+回车<br>
+System.out.println(&quot;&quot;)：sout+回车<br>
+fori</p>
+<p>8、成员方法一般是一种动作，方法名以动词命名，驼峰命名法</p>
+<p>9、java基本类型赋值，字面值赋值，字面值：<br>
+0x代表十六进制<br>
+0开头代表八进制<br>
+0b开头代表二进制<br>
+f后置代表float类型<br>
+L后置代表long类型<br>
+3.14e2  =  3.14*10^2 = 314   科学计数法的字面值</p>
+<p>\t 制表符，多个输出每一个后面加制表符则会制成表格<br>
+\r  carriage return 马车反转，回车符，表示光标换到此行开头<br>
+\n   new Line简称换行符，表示此行结束后，光标跳到下一行（本义不一定跳到下一行行首，仅仅只指换到下一行）<br>
+\r\n二者一般一起用，表示光标跳到下一行，且在下一行行首<br>
+一般来说不同操作系统二者含义不一样，Win系统为本义，UNIX系的操作系统\n就代表回车+换行，MAC系统\r代表回车+换行</p>
+<p>10、变量命名规则<br>
+1）字母或下划线或$符号作为开头，再加一个数字可作为变量名的组成<br>
+2）使用完整的英文名字作为变量名，不要用缩写，关键词不可单独使用，可以加上其他字符变成其他变量<br>
+3）中文也可以作为变量名，但在实际中不能这么使用</p>
+<p>11、作用域<br>
+类中声明的变量作用域为整个类中间<br>
+局部变量是指成员方法中声明的变量</p>
+<p>12、final修饰一个变量时，该变量只有一次赋值机会<br>
+final int i = 5；final修饰方法的形式参数时，调用时赋予的实参值就是最后一次赋值，再对这个形参进行更改就无法改变其值</p>
+<p>13利用Scanner类进行控制台读取值，先读取整型数字之后再读取字符串时，要用两次nextLine()方法，这是因为nextInt()只读取数字，不会读取回车换行符，所以第一次nextLine()方法读取回车换行</p>
+<p>14、println()方法中，+号前后有字符串String类时，加号代表字符串连接符号，只有数字时则代表运算符，如：<br>
+println(3+4+&quot;abc&quot;);  输出7abc</p>
+<p>15、长路与a&amp;b，短路与c&amp;&amp;d，长路与中，a和b都将会被运算后得出布尔值，短路与c为false时d不计算，或相同； 异或符^，相同为假，不同为真true</p>
+<p>16、双重循环，想要从内部循环的运算结果来决定是否退外部循环有两种做法：<br>
+1、全局布尔变量，内部循环控制其值，外部循环每次检查<br>
+2、设置标签，break 标签</p>
 ]]></content>
     </entry>
     <entry>
