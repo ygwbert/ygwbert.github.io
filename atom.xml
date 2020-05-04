@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ygwbert.github.io/</id>
     <title>ygwbert</title>
-    <updated>2020-05-04T14:10:24.760Z</updated>
+    <updated>2020-05-04T14:41:20.531Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ygwbert.github.io/"/>
     <link rel="self" href="https://ygwbert.github.io/atom.xml"/>
@@ -192,6 +192,285 @@ println(3+4+&quot;abc&quot;);  输出7abc</p>
 <p>未来，它一定会成为你离不开的伙伴</p>
 <p>尽情发挥你的才华吧！</p>
 <p>😘 Enjoy~</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[C/C++教科书基础练习（2）]]></title>
+        <id>https://ygwbert.github.io/post/c/</id>
+        <link href="https://ygwbert.github.io/post/c/">
+        </link>
+        <updated>2018-05-01T14:38:45.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="字符型数组和字符串">字符型数组和字符串</h1>
+<pre><code>#include &lt;iostream&gt;
+using namespace std;
+int main() {
+	char a[] = &quot;hello&quot;;//这是字符串，一共六个字符，最后一个是空字符
+	char b[] = { 'H','E','L','L','o' };//这是字符型数组，最后一个就是O
+
+	cout &lt;&lt; strlen(a) &lt;&lt; endl;  //strlen函数只会一直找到空白符然后统计到空白符的字符数，不包括空白符
+}
+</code></pre>
+<h1 id="迭代法勾股数">迭代法勾股数</h1>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;math.h&gt;
+using namespace std;
+
+int main() {
+	int a, b;
+	cout &lt;&lt; &quot;请输入左边界&quot;;
+	cin &gt;&gt; a;
+	cout &lt;&lt; &quot;请输入右边界&quot;;
+	cin &gt;&gt; b;
+	if (a &gt;= b) {
+		cout &lt;&lt; &quot;边界错误输入&quot; &lt;&lt; endl;
+		exit(1);
+	}
+	for (int i = a; i &lt;= b-2; i++) {  //设置为b-2，因为除了3这个和5相差二的勾股数，再没有其他的只比斜边小二的数了		
+		for (int j = i+1; j &lt;= b-1; j++) {     //同上，除了4，没有只比斜边小于一的勾股数，避免重复，所以设置j等于i+1
+			int temp = i * i + j * j;
+			
+			int k = sqrt(i*i + j * j); 
+
+			if (k &gt;= a &amp;&amp; k &lt;= b&amp;&amp;k*k==temp) {
+				cout &lt;&lt; i &lt;&lt; '\0' &lt;&lt; j &lt;&lt; '\0' &lt;&lt; k &lt;&lt; endl;
+			}
+		}
+	}
+}
+</code></pre>
+<h1 id="各种方法遍历数组">各种方法遍历数组</h1>
+<pre><code>#include &lt;iostream&gt;
+using namespace std;
+int main() {
+	int a[3][4] = { {1,1,1,6},{2,2,2,7},{3,3,3,8} };
+	int *p = nullptr;
+	p = &amp;a[0][0];                      //指针变量遍历二维数组元素
+	for (; p &lt; a[0] + 12; p++) {
+		cout &lt;&lt; *p &lt;&lt; '\0';
+	}
+	cout &lt;&lt; endl;
+	int(*t)[4];
+	t = a;
+	for (; t &lt; a + 3; t++) {
+		int *n = *t;
+		for (; n &lt; *t + 4; n++) {
+			cout &lt;&lt; *n &lt;&lt;'\0';
+		}
+	}
+
+	for (int i = 0; i &lt; 3; i++) {
+		for (int j = 0; j &lt; 4; j++) {
+			cout &lt;&lt; *(*(a + i) + j) &lt;&lt; '\0';
+		}
+}}
+</code></pre>
+<h1 id="连接字符串">连接字符串</h1>
+<pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+	char s1[20], s2[20];
+	puts(&quot;请输入第一个字符串&quot;);
+	gets_s(s1);
+	puts(&quot;请输入第二个字符串&quot;);
+	gets_s(s2);
+	cout &lt;&lt; &quot;第一个字符串为&quot; &lt;&lt; s1 &lt;&lt; endl;
+	puts(&quot;第二个字符串为&quot;);
+	puts(s2);
+	char *p1 = s1, *p2 = s2;
+	while (*p2 != '\0') {
+		p2++;
+	}
+	/*if (strlen(s1) &lt; 3) {
+		while (*p1 != '\0') {
+			*p2 = *p1;
+			p1++, p2++;
+		}
+		*p2 = '\0';
+		cout &lt;&lt; s1 &lt;&lt; endl;
+		cout &lt;&lt; s2 &lt;&lt; endl;
+		exit(1);
+	}*/
+	while ((p1 &lt; s1 + 3 )&amp;&amp; (*p1!='\0')) {    //改为由i来计数更方便  while((i &lt; 3) &amp;&amp; ( *p1 != '\0'))
+		*p2 = *p1;
+		p1++, p2++;
+	}
+	*p2 = '\0';
+	while (*p1 != '\0'){
+		p1++;
+	}
+	p1--;
+	for (int i = 0; (strlen(s1)) &gt; 2 &amp;&amp; (i &lt; 3); i++) {
+		*p2 = *p1;
+		p1--, p2++;
+	}
+	*p2 = '\0';
+	cout &lt;&lt; s1 &lt;&lt; endl;
+	cout &lt;&lt; s2 &lt;&lt; endl;
+
+}
+</code></pre>
+<h1 id="剩下的树单点测试">剩下的树单点测试</h1>
+<pre><code>#include &lt;iostream&gt;
+
+using namespace std;
+int main(){
+	int n , m, p1, p2, *p;
+	
+	cin &gt;&gt; n &gt;&gt; m;
+	 p =new int[n+1];//用new就必须要要用delete
+	
+	for(int i =0; i &lt; n+1; i++){
+		p[i] = 1;
+	}
+	
+	for(int i = 0; i &lt; m; i++){
+		cin&gt;&gt;p1&gt;&gt;p2;
+		for(int j = p1; j &lt;=p2; j++){
+			p[j] = 0;
+		}
+	}
+	int count = 0;
+	for(int i = 0; i &lt; n+1; i++){
+		if(p[i] == 1)
+			count++;
+	}
+	delete[] p;
+	cout&lt;&lt;count&lt;&lt;endl;
+}
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[C/C++教科书基础练习（1）]]></title>
+        <id>https://ygwbert.github.io/post/ccjiao-ke-shu-ji-chu-lian-xi/</id>
+        <link href="https://ygwbert.github.io/post/ccjiao-ke-shu-ji-chu-lian-xi/">
+        </link>
+        <updated>2018-04-30T14:24:20.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="函数指针和指针函数">函数指针和指针函数</h1>
+<pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+int *func();
+int main() {
+	int *p;
+	p = func();
+	cout &lt;&lt; &quot;这是被调用函数中定义的变量的地址&quot; &lt;&lt; p &lt;&lt; endl;
+}
+
+int *func() {
+	int a = 1, *p;
+	cout &lt;&lt; &quot;这是一个返回指针变量的函数&quot; &lt;&lt; endl;
+	p = &amp;a;
+	return p;
+}
+#include &lt;iostream&gt;
+using namespace std;
+
+int print();
+int main() {
+	int(*p)();
+	p = print;//此时函数名可以和p互换，函数名即函数第一条指令所在的地址
+	p();
+}
+
+int print() {
+	cout &lt;&lt; &quot;打印一行字&quot; &lt;&lt; endl;
+	return 0;
+}
+</code></pre>
+<h1 id="内存动态分配">内存动态分配</h1>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;string&gt;
+using namespace std;
+
+int main() {
+	/*int *p = new int;  //在运行时分配一个int类型的内存，new操作符返回这个变量的地址
+	int *q;
+	q = p;
+	*p = 5;
+
+	delete q;   //delet只能释放用new操作符申请的内存空间
+	
+	cout &lt;&lt; *p &lt;&lt; endl;  //此时*p这个变量的内存已经被delete释放掉了
+
+	int *p = new int[10]{0,1,5,3,4,5,6,7,8,8  };  //new操作符返回int类型数组的第一个元素的地址
+	cout &lt;&lt; p[1] &lt;&lt; endl;
+
+	delete[] p;  //任何用new操作符分配的内存必须在使用结束后释放掉它*/
+
+	char flower[] = &quot;rose&quot;;
+	const char *pchar = &quot;dance return&quot;;
+	pchar = flower;
+
+
+	cout &lt;&lt; pchar &lt;&lt; &quot;it is red\n&quot;;   //用双引号扩起的字符串也将传递给cout一个首地址，cout从首地址开始打印直到打印到\0为止
+}
+</code></pre>
+<h1 id="锤子剪刀布-pat乙级">锤子剪刀布 pat乙级</h1>
+<pre><code>#include &lt;iostream&gt;
+using namespace std;
+void result(char a,char b);
+int *p = new int[6];
+int pj = 0;
+int main(){
+	for(int i =0; i&lt; 6;i++){
+		p[i] =0;
+}
+
+	int n;
+	char a,b;
+	cin&gt;&gt;n;
+	for(int i=1;i&lt;=n;i++){
+		cin&gt;&gt;a&gt;&gt;b;
+		result(a,b);
+	}
+	
+	int js = p[0]+p[1]+p[2];
+	cout&lt;&lt;js&lt;&lt;' '&lt;&lt;pj&lt;&lt;' '&lt;&lt;n-js-pj&lt;&lt;endl;
+	cout&lt;&lt;n-js-pj&lt;&lt;' '&lt;&lt;pj&lt;&lt;' '&lt;&lt;js&lt;&lt;endl;
+	char jh[6] = {'J','C','B','J','C','B'};
+	int max1 =-1,max2 =-1;
+	char cs1 = 'J',cs2 ='J';
+	for(int i =0;i&lt;3;i++){
+		if(p[i]&gt;=max1){
+			max1 = p[i];
+			if(jh[i]&lt;=cs1)
+				cs1 = jh[i];	
+		}
+		if(p[i+3]&gt;=max2){
+			max2 = p[i+3];
+			if(jh[i+3]&lt;=cs2)
+				cs2 = jh[i+3];	
+		}
+
+	}
+	cout&lt;&lt;cs1&lt;&lt;' '&lt;&lt;cs2&lt;&lt;endl;
+
+	delete[] p;
+
+}
+
+void result(char a, char b){
+	
+	if(a==b)
+		pj++;
+	else
+		if(a == 'C'&amp;&amp; b == 'J')
+			p[1]++;
+		else if(a == 'J'&amp;&amp; b == 'B')
+			p[0]++;
+		else if(a =='B'&amp;&amp; b=='C')
+			p[2]++;
+		else if(b == 'C'&amp;&amp; a == 'J' )
+			p[4]++;
+		else if(b == 'J'&amp;&amp; a == 'B')
+			p[3]++;
+		else
+			p[5]++;
+
+}
+</code></pre>
 ]]></content>
     </entry>
     <entry>
