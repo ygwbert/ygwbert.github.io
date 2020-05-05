@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ygwbert.github.io/</id>
     <title>ygwbert</title>
-    <updated>2020-05-04T14:41:20.531Z</updated>
+    <updated>2020-05-05T15:31:15.376Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ygwbert.github.io/"/>
     <link rel="self" href="https://ygwbert.github.io/atom.xml"/>
@@ -10,6 +10,62 @@
     <logo>https://ygwbert.github.io/images/avatar.png</logo>
     <icon>https://ygwbert.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, ygwbert</rights>
+    <entry>
+        <title type="html"><![CDATA[java 类类型传参]]></title>
+        <id>https://ygwbert.github.io/post/java-lei-lei-xing-chuan-can/</id>
+        <link href="https://ygwbert.github.io/post/java-lei-lei-xing-chuan-can/">
+        </link>
+        <updated>2020-05-05T15:27:37.000Z</updated>
+        <content type="html"><![CDATA[<pre><code>public class Hero {
+       
+    String name; //姓名
+       
+    float hp; //血量
+       
+    float armor; //护甲
+       
+    int moveSpeed; //移动速度
+    
+    public Hero(){
+    	
+    }
+    
+    public Hero(String name,float hp){
+    	this.name = name;
+        this.hp = hp;
+    }
+
+    //复活
+    public void revive(Hero h){
+    	h = new Hero(&quot;提莫&quot;,383);
+    }
+
+    public static void main(String[] args) {
+        Hero teemo =  new Hero(&quot;提莫&quot;,383);
+        
+        //受到400伤害，挂了
+        teemo.hp = teemo.hp - 400;
+        
+        teemo.revive(teemo);
+        
+        //问题： System.out.println(teemo.hp); 输出多少？ 怎么理解？
+        
+    }
+     
+}
+</code></pre>
+<p>hp仍为负数，因为teemo在作为实参传到h时，有一个动作h=teemo；表示h指向teemo引用所指向的对象，但teemo仍然指向这个负数hp的对象，而后在方法中，形参h又指向了一个新的对象，调用完函数后该对象就“销毁”</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[IDEA笔记]]></title>
+        <id>https://ygwbert.github.io/post/idea-bi-ji/</id>
+        <link href="https://ygwbert.github.io/post/idea-bi-ji/">
+        </link>
+        <updated>2020-05-04T16:22:02.000Z</updated>
+        <content type="html"><![CDATA[<p>1、断点调试，force step into进入所有的方法内，包括jdk内的方法，step into只进自己写的方法内，条件断点，可以对断点设置条件，断点处右键，输入布尔值，使得断点在满足条件的时候停止。</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[记一次练习题错误]]></title>
         <id>https://ygwbert.github.io/post/ji-yi-ci-lian-xi-ti-cuo-wu/</id>
@@ -78,7 +134,10 @@ DCDSVC<br>
         <link href="https://ygwbert.github.io/post/shi-yi-shi-gao-liang-gong-neng/">
         </link>
         <updated>2020-05-02T23:32:32.000Z</updated>
+        <summary type="html"><![CDATA[<p>下面是一段代码：</p>
+]]></summary>
         <content type="html"><![CDATA[<p>下面是一段代码：</p>
+<!-- more -->
 <pre><code>import java.util.Scanner;
 public class ScannerTest {
     public static void main(String[] args){
@@ -471,108 +530,6 @@ void result(char a, char b){
 
 }
 </code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[java技术及其应用课程笔记]]></title>
-        <id>https://ygwbert.github.io/post/java-ji-zhu-ji-qi-ying-yong-ke-cheng-bi-ji/</id>
-        <link href="https://ygwbert.github.io/post/java-ji-zhu-ji-qi-ying-yong-ke-cheng-bi-ji/">
-        </link>
-        <updated>2018-04-16T13:49:50.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="1-静态方法">1、静态方法</h2>
-<p>在调用其他类的函数时，若函数为非静态函数，则必须先实例化一个对象后，通过对象来调用该函数，否则报错，静态函数则可以不必实例化直接调用，用类名调用。</p>
-<p>调用静态方法则不需要、无法指定也无法使用receiver。Java语言中的类不是对象，所以通过ClassName.aStaticMethod(args)的方式去调用一个静态方法时，“点”前面的并不是receiver。如果“点”前面的是一个指向某对象实例的变量而“点”后面指定的是一个静态方法，则实际上那个变量并没有被作为receiver使用，只是个调用变量的类型上声明的静态方法的语法糖而已。也就是说：<br>
-Java代码  收藏代码<br>
-aVariable.aStaticMethod(args)</p>
-<p>实际上等效于：<br>
-Java代码  收藏代码<br>
-TheClass.aStaticMethod(args)</p>
-<p>另外需要注意的是，Java语言中，实例构造器只能在new表达式（或别的构造器）中被调用，不能通过方法调用表达式来调用。new表达式作为一个整体保证了对象的创建与初始化是打包在一起进行的，不能分开进行；但实例构造器只负责对象初始化的部分，“创建对象”的部分是由new表达式本身保证的。</p>
-<h2 id="2-gbk编码问题">2、GBK编码问题</h2>
-<p>在notepad++中，用char关键字声明字符变量时，初始化中文字，用命令提示符javac命令编译时，报错“错误: 编码 GBK 的不可映射字符 (0xAD)”，原因如下（摘自CSDN博客，网址：http://blog.csdn.net/jinlong0/article/details/2029579）<br>
-JCreator出现这种问题的原因是：由于JDK是国际版的，在编译的时候，如果我们没有用-encoding参数指定我们的JAVA源程序的编码格式，则javac.exe首先获得我们操作系统默认采用的编码格式，也即在编译java程序时，若我们不指定源程序文件的编码格式，JDK首先获得操作系统的file.encoding参数(它保存的就是操作系统默认的编码格式，如WIN2k，它的值为GBK)，然后JDK就把我们的java源程序从file.encoding编码格式转化为JAVA内部默认的UNICODE格式放入内存中。然后，javac把转换后的unicode格式的文件进行编译成.class类文件，此时.class文件是UNICODE编码的，它暂放在内存中，紧接着，JDK将此以UNICODE编码的编译后的class文件保存到我们的操作系统中形成我们见到的.class文件。对我们来说，我们最终获得的.class文件是内容以UNICODE编码格式保存的类文件，它内部包含我们源程序中的中文字符串，只不过此时它己经由file.encoding格式转化为UNICODE格式了。当我们不加设置就编译时，相当于使用了参数：javac -encoding gbk XX.java，当然就会出现不兼容的情况。<br>
-解决办法是：应该使用-encoding参数指明编码方式：javac -encoding UTF-8 XX.java，这下没警告了，运行也正确了在JCreator 4中设置：菜单：Configure --&gt; Options --&gt; JDK Tools --&gt; Compiler，选中<Default>，然后选Edit，Parameters里面，最前面添加：-encoding UTF-8。<br>
-Parameters原来的<br>
-默认值为：-classpath &quot;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>[</mo><mi>C</mi><mi>l</mi><mi>a</mi><mi>s</mi><mi>s</mi><mi>P</mi><mi>a</mi><mi>t</mi><mi>h</mi><mo>]</mo><mi mathvariant="normal">&quot;</mi><mo>−</mo><mi>d</mi><mi mathvariant="normal">&quot;</mi></mrow><annotation encoding="application/x-tex">[ClassPath]&quot; -d &quot;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">a</span><span class="mord mathdefault">s</span><span class="mord mathdefault">s</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mord mathdefault">a</span><span class="mord mathdefault">t</span><span class="mord mathdefault">h</span><span class="mclose">]</span><span class="mord">&quot;</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">d</span><span class="mord">&quot;</span></span></span></span>[OutputPath]&quot; <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>[</mo><mi>M</mi><mi>o</mi><mi>d</mi><mi>J</mi><mi>a</mi><mi>v</mi><mi>a</mi><mi>F</mi><mi>i</mi><mi>l</mi><mi>e</mi><mi>s</mi><mo>]</mo><mi mathvariant="normal">修</mi><mi mathvariant="normal">改</mi><mi mathvariant="normal">后</mi><mi mathvariant="normal">为</mi><mi mathvariant="normal">：</mi><mo>−</mo><mi>e</mi><mi>n</mi><mi>c</mi><mi>o</mi><mi>d</mi><mi>i</mi><mi>n</mi><mi>g</mi><mi>U</mi><mi>T</mi><mi>F</mi><mo>−</mo><mn>8</mn><mo>−</mo><mi>c</mi><mi>l</mi><mi>a</mi><mi>s</mi><mi>s</mi><mi>p</mi><mi>a</mi><mi>t</mi><mi>h</mi><mi mathvariant="normal">&quot;</mi></mrow><annotation encoding="application/x-tex">[ModJavaFiles]
-修改后为：-encoding UTF-8 -classpath &quot;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.10903em;">M</span><span class="mord mathdefault">o</span><span class="mord mathdefault">d</span><span class="mord mathdefault" style="margin-right:0.09618em;">J</span><span class="mord mathdefault">a</span><span class="mord mathdefault" style="margin-right:0.03588em;">v</span><span class="mord mathdefault">a</span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="mord mathdefault">i</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">e</span><span class="mord mathdefault">s</span><span class="mclose">]</span><span class="mord cjk_fallback">修</span><span class="mord cjk_fallback">改</span><span class="mord cjk_fallback">后</span><span class="mord cjk_fallback">为</span><span class="mord cjk_fallback">：</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">e</span><span class="mord mathdefault">n</span><span class="mord mathdefault">c</span><span class="mord mathdefault">o</span><span class="mord mathdefault">d</span><span class="mord mathdefault">i</span><span class="mord mathdefault">n</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault" style="margin-right:0.10903em;">U</span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">8</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">c</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">a</span><span class="mord mathdefault">s</span><span class="mord mathdefault">s</span><span class="mord mathdefault">p</span><span class="mord mathdefault">a</span><span class="mord mathdefault">t</span><span class="mord mathdefault">h</span><span class="mord">&quot;</span></span></span></span>[ClassPath]&quot; -d &quot;$[OutputPath]&quot; $[ModJavaFiles]</p>
-<h2 id="3-同类中不同方法之间调用排列组合待完成">3、同类中不同方法之间调用排列组合（待完成）</h2>
-<p>构造函数运行时只有在new方法中才能被调用运行<br>
-（1.1）构造函数调用构造函数（this关键字）<br>
-<img src="https://ygwbert.github.io//post-images/1588600689332.png" alt="" loading="lazy"></p>
-<p>（1.2）构造函数调用实例函数（省略了this引用）<br>
-<img src="https://ygwbert.github.io//post-images/1588600740567.png" alt="" loading="lazy"></p>
-<p>（1.3）构造函数调用静态函数（省略了Child类）<br>
-<img src="https://ygwbert.github.io//post-images/1588600775018.png" alt="" loading="lazy"></p>
-<p>（2.1）实例函数调用构造函数：</p>
-<p>非法，构造函数只能被构造函数或者new方法调用</p>
-<p>（2.2）实例函数调用实例函数：</p>
-<p>直接函数名加括号，省略了对象this</p>
-<p>（2.3）实例函数调用静态函数，直接函数加括号，省略了类名</p>
-<p>（3.1）静态函数调用构造函数</p>
-<p>非法，构造函数只能被new方法或者其他构造函数调用（同类用this），不同类用super</p>
-<p>（3.2）静态函数调用静态函数</p>
-<p>直接用名字调用，省略了类名</p>
-<p>（3.3）静态函数调用实例（非静态）函数   不存在，因为静态函数跟随类一起在内存中，但非静态函数必须先用对象实例化才能在内存中分配到空间，所以静态函数已经存在了，非静态并不存在，不存在的函数无法运行</p>
-<p>类的静态成员（静态变量和静态方法）属于类本身，在类加载的时候就会分配内存，可以通过类名直接去访问，非静态成员（非静态变量和非静态方法）属于类的对象，所以只有在类的对象创建（实例化）的时候才会分配内存，然后通过类的对象去访问。</p>
-<h2 id="4-不同类中不同方法之间调用排列组合待完成">4、不同类中不同方法之间调用排列组合（待完成）</h2>
-<table>
-<thead>
-<tr>
-<th>构造函数</th>
-<th>实例函数</th>
-<th>静态函数</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>构造函数（调用）子类必须调用父类构造函数（至于毫无关系的类之间目前未知）用super关键字调用</td>
-<td>--</td>
-<td>---</td>
-</tr>
-<tr>
-<td>实例函数</td>
-<td>----</td>
-<td>----</td>
-</tr>
-<tr>
-<td>静态函数</td>
-<td>----</td>
-<td>----</td>
-</tr>
-</tbody>
-</table>
-<h2 id="5-权限关键字">5、权限关键字</h2>
-<table>
-<thead>
-<tr>
-<th>关键字</th>
-<th>可修饰的对象</th>
-<th>权限</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Public</td>
-<td>类、成员变量、成员函数</td>
-<td>任何跨包、同包都可以使用</td>
-</tr>
-<tr>
-<td>Projected</td>
-<td>成员变量、成员函数</td>
-<td>同包内可以任意调用、跨包必须是子类继承父类这种关系中，子类可以调用</td>
-</tr>
-<tr>
-<td>Default</td>
-<td>类、成员变量、成员函数</td>
-<td>同包内可以调用、不同包都不可以 调用</td>
-</tr>
-<tr>
-<td>Private</td>
-<td>（类：内部类）、成员变量、成员函数</td>
-<td>只能在同类中使用，同包异类不可以调用</td>
-</tr>
-</tbody>
-</table>
 ]]></content>
     </entry>
 </feed>
