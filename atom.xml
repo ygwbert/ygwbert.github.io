@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ygwbert.github.io/</id>
     <title>ygwbert</title>
-    <updated>2020-05-06T10:38:30.250Z</updated>
+    <updated>2020-05-06T16:59:08.402Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ygwbert.github.io/"/>
     <link rel="self" href="https://ygwbert.github.io/atom.xml"/>
@@ -149,9 +149,19 @@ final int i = 5；final修饰方法的形式参数时，调用时赋予的实参
 println(3+4+&quot;abc&quot;);  输出7abc</p>
 <p>15、长路与a&amp;b，短路与c&amp;&amp;d，长路与中，a和b都将会被运算后得出布尔值，短路与c为false时d不计算，或相同； 异或符^，相同为假，不同为真true</p>
 <p>16、双重循环，想要从内部循环的运算结果来决定是否退外部循环有两种做法：<br>
-1、全局布尔变量，内部循环控制其值，外部循环每次检查<br>
-2、设置标签，break 标签</p>
+1）、全局布尔变量，内部循环控制其值，外部循环每次检查<br>
+2）、设置标签，break 标签</p>
 <p>17、访问修饰符：一般类中属性使用private修饰，表示其他任何类不可继承不可访问；方法一般都用public修饰方便被调用吧，希望被子类继承的方法使用protected修饰符，package/friendly/default一般很少使用。“能小则小原则，不要过多暴露”</p>
+<p>18、token为令牌，当客户端请求服务器端时，服务器要将客户端传来的用户名和密码数据跟数据库中的作比对，从而实现登录，以后每一次请求动作时都要到数据库查询作比对，所以为简化操作，加入token，一种是将客户端MAC地址作为token，首次登录时发送过来，之后只需比对token就行，还有一种方法是将sessionID作为token，这样不需要多余数据，缺点是session一旦过期，ID失效需要重新登录。<br>
+最好的是将token套在session里使用，这样没有第一种方法里的客户端重复提交问题。</p>
+<p>19、原子性，原语， wait()操作=P操作，signal() = V操作，用某一种资源时，P一下，信号量自减一，如果信号量小于零，自己将自己挂起，java sleep方法，用完某资源，V一下，信号量自加一，如果信号量此时仍然小于零，则说明有进程在阻塞态，调用唤醒操作。</p>
+<p>20、new一个新对象调用构造方法时，首先进入构造方法处，此时未进入到方法体内，<br>
+第一步隐式调用父类构造方法，父类必须自己负责给自己初始化；<br>
+第二步给这个新对象里的成员进行初始化，初始化方法包括用方法初始化或者用代码块初始化或赋值<br>
+第三步最后执行方法体内的内容。<br>
+构造方法/构造器存在的意义是构造一个完整的对象，所以该对象的类中各种属性都会被初始化。<br>
+<img src="https://ygwbert.github.io//post-images/1588781469930.png" alt="" loading="lazy"></p>
+<p>21、</p>
 ]]></content>
     </entry>
     <entry>
