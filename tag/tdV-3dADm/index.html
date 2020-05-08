@@ -1,180 +1,263 @@
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>ygwbert</title>
-<link rel="shortcut icon" href="https://ygwbert.github.io//favicon.ico">
-<link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css">
-<link rel="stylesheet" href="https://ygwbert.github.io//media/css/tailwind.css">
+    <meta charset="utf-8"/>
+<meta name="description" content=""/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>notebook | ygwbert</title>
+<link rel="shortcut icon" href="https://ygwbert.github.io//favicon.ico?v=1588941620421">
+<link href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.css" rel="stylesheet">
 <link rel="stylesheet" href="https://ygwbert.github.io//styles/main.css">
-<link rel="alternate" type="application/atom+xml" title="ygwbert - Atom Feed" href="https://ygwbert.github.io//atom.xml">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-    
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dart.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/go.min.js"></script>
+<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
 
-  <meta name="description" content="In the middle of difficulty lies opportunity" />
+<!-- DEMO JS -->
+<!--<script src="media/scripts/index.js"></script>-->
+
+
+
 </head>
 <body>
-  <div class="antialiased flex flex-col min-h-screen" id="app">
-
-    <div class="nav py-3 md:py-8 fixed w-full z-10 bg-gray-50 dark:bg-gray-700 transition-all duration-300" :class="{ 'scroll': scrolled }">
-  <div class="flex justify-end px-4">
-    <div class="w-8 h-8 flex justify-center items-center rounded-full md:hidden" @click="showMenu = !showMenu">
-      <i class="ri-close-line" v-show="showMenu"></i>
-      <i class="ri-menu-3-line" v-show="!showMenu"></i>
+<div class="main gt-bg-theme-color-first">
+    <div class="main-content">
+        <nav class="navbar navbar-expand-lg">
+    <div class="navbar-brand">
+        <img class="user-avatar" src="/images/avatar.png" alt="头像">
+        <div class="site-name gt-c-content-color-first">
+            ygwbert
+        </div>
     </div>
-  </div>
-  <nav class="max-w-4xl w-full mx-auto text-center flex flex-col md:flex-row justify-center md:block" :class="`${ showMenu ? 'block' : 'hidden' }`">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars gt-c-content-color-first" style="font-size: 18px"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="navbar-nav mr-auto" style="text-align: center">
+            
+                <div class="nav-item">
+                    
+                        <a href="/" class="menu gt-a-link">
+                            首页
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/archives" class="menu gt-a-link">
+                            归档
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/tags" class="menu gt-a-link">
+                            标签
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/post/about" class="menu gt-a-link">
+                            关于
+                        </a>
+                    
+                </div>
+            
+        </div>
+    </div>
+</nav>
+        <div class="current-tag-container">
+            <h2 class="title gt-c-content-color-first">
+                #notebook
+            </h2>
+        </div>
+        <div class="post-list-container">
+    <div class="post-inner">
+        
+            <div class="post gt-bg-theme-color-second">
+                <div class="post-left">
+                    <div>
+                        
+                        <a href="https://ygwbert.github.io/post/idea-bi-ji/">
+                            <span class="post-title gt-c-content-color-first">IDEA笔记</span>
+                        </a>
+                    </div>
+                    <div class="gt-post-content post-abstract gt-c-content-color-second">
+                        
+                    </div>
+                    <div class="post-info">
+                        <time class="post-time gt-c-content-color-first">
+                            发布于 · 2020-05-05 ·
+                        </time>
+                        
+                            <a href="https://ygwbert.github.io/tag/tdV-3dADm/" class="post-tag">
+                                # notebook
+                            </a>
+                        
+                    </div>
+                </div>
+                
+            </div>
+        
+            <div class="post gt-bg-theme-color-second">
+                <div class="post-left">
+                    <div>
+                        
+                        <a href="https://ygwbert.github.io/post/ji-yi-ci-lian-xi-ti-cuo-wu/">
+                            <span class="post-title gt-c-content-color-first">记一次练习题错误</span>
+                        </a>
+                    </div>
+                    <div class="gt-post-content post-abstract gt-c-content-color-second">
+                        
+                    </div>
+                    <div class="post-info">
+                        <time class="post-time gt-c-content-color-first">
+                            发布于 · 2020-05-04 ·
+                        </time>
+                        
+                            <a href="https://ygwbert.github.io/tag/tdV-3dADm/" class="post-tag">
+                                # notebook
+                            </a>
+                        
+                    </div>
+                </div>
+                
+            </div>
+        
+            <div class="post gt-bg-theme-color-second">
+                <div class="post-left">
+                    <div>
+                        
+                        <a href="https://ygwbert.github.io/post/tips2/">
+                            <span class="post-title gt-c-content-color-first">学习小tips（2）</span>
+                        </a>
+                    </div>
+                    <div class="gt-post-content post-abstract gt-c-content-color-second">
+                        
+                    </div>
+                    <div class="post-info">
+                        <time class="post-time gt-c-content-color-first">
+                            发布于 · 2019-03-07 ·
+                        </time>
+                        
+                            <a href="https://ygwbert.github.io/tag/tdV-3dADm/" class="post-tag">
+                                # notebook
+                            </a>
+                        
+                    </div>
+                </div>
+                
+            </div>
+        
+            <div class="post gt-bg-theme-color-second">
+                <div class="post-left">
+                    <div>
+                        
+                        <a href="https://ygwbert.github.io/post/xue-xi-xiao-tips/">
+                            <span class="post-title gt-c-content-color-first">学习小tips</span>
+                        </a>
+                    </div>
+                    <div class="gt-post-content post-abstract gt-c-content-color-second">
+                        
+                    </div>
+                    <div class="post-info">
+                        <time class="post-time gt-c-content-color-first">
+                            发布于 · 2019-03-02 ·
+                        </time>
+                        
+                            <a href="https://ygwbert.github.io/tag/tdV-3dADm/" class="post-tag">
+                                # notebook
+                            </a>
+                        
+                    </div>
+                </div>
+                
+            </div>
+        
+            <div class="post gt-bg-theme-color-second">
+                <div class="post-left">
+                    <div>
+                        
+                        <a href="https://ygwbert.github.io/post/java-ji-zhu-ji-qi-ying-yong-ke-cheng-bi-ji/">
+                            <span class="post-title gt-c-content-color-first">java技术及其应用课程笔记</span>
+                        </a>
+                    </div>
+                    <div class="gt-post-content post-abstract gt-c-content-color-second">
+                        
+                    </div>
+                    <div class="post-info">
+                        <time class="post-time gt-c-content-color-first">
+                            发布于 · 2018-04-16 ·
+                        </time>
+                        
+                            <a href="https://ygwbert.github.io/tag/tdV-3dADm/" class="post-tag">
+                                # notebook
+                            </a>
+                        
+                            <a href="https://ygwbert.github.io/tag/tBASGojHY/" class="post-tag">
+                                # java
+                            </a>
+                        
+                    </div>
+                </div>
+                
+            </div>
+        
+    </div>
+</div>
+        <div class="pagination-container">
     
-      <a href="/" target="" class="py-2 md:py-1 px-4 mx-4 inline-flex transition font-semibold rounded dark:hover:bg-gray-600 hover:bg-gray-200">
-        首页
-      </a>
     
-      <a href="/archives" target="" class="py-2 md:py-1 px-4 mx-4 inline-flex transition font-semibold rounded dark:hover:bg-gray-600 hover:bg-gray-200">
-        归档
-      </a>
-    
-      <a href="/tags" target="" class="py-2 md:py-1 px-4 mx-4 inline-flex transition font-semibold rounded dark:hover:bg-gray-600 hover:bg-gray-200">
-        标签
-      </a>
-    
-      <a href="/post/about" target="" class="py-2 md:py-1 px-4 mx-4 inline-flex transition font-semibold rounded dark:hover:bg-gray-600 hover:bg-gray-200">
-        关于
-      </a>
-    
-    <a href="https://ygwbert.github.io//atom.xml" target="_blank" class="py-2 md:py-1 px-4 mx-4 inline-flex transition font-semibold rounded dark:hover:bg-gray-600 hover:bg-gray-200">
-      RSS
-    </a>
-  </nav>
 </div>
 
-    <div class="max-w-4xl w-full mx-auto pt-32">
-      <h1 class="text-2xl font-bold pb-8 flex justify-center items-center">
-        <i class="ri-hashtag"></i>
-        notebook
-      </h1>
-      <div class="shadow-box bg-white dark:bg-gray-600 border-gray-300 rounded-none md:rounded-lg -mx-1 md:mx-0 md:px-0">
+        <div class="site-footer gt-c-content-color-first">
+    <div class="slogan gt-c-content-color-first">In the middle of difficulty lies opportunity</div>
+    <div class="social-container">
         
-  <div class="p-8 border-b border-gray-200 dark:border-gray-700 flex relative overflow-hidden flex-col md:flex-row animated fadeIn">
-    
-    <div class="flex-1 order-2 md:order-1">
-      <h2 class="text-2xl font-semibold mb-4">
-        <a href="https://ygwbert.github.io/post/idea-bi-ji/" class="text-gray-700 dark:text-gray-200 border-b-2 border-dotted border-gray-200 dark:border-gray-400 dark:hover:border-gray-200 hover:border-gray-600 transition-all duration-100">
-          IDEA笔记
-        </a>
-      </h2>
-      <div class="mb-4 text-xs text-gray-500">2020-05-05</div>
-      <div class="mb-4 text-gray-500 dark:text-gray-300">
-        1、断点调试，force step into进入所有的方法内，包括jdk内的方法，step into只进自己写的方法内，条件断点，可以对断点设置条件，断点处右键，输入布尔值，使得断点在满足条件的时候停止。
-
-      </div>
-      <a href="https://ygwbert.github.io/post/idea-bi-ji/" class="btn">
-        Read more
-      </a>
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
     </div>
-    
-  </div>
-
-  <div class="p-8 border-b border-gray-200 dark:border-gray-700 flex relative overflow-hidden flex-col md:flex-row animated fadeIn">
-    
-    <div class="flex-1 order-2 md:order-1">
-      <h2 class="text-2xl font-semibold mb-4">
-        <a href="https://ygwbert.github.io/post/ji-yi-ci-lian-xi-ti-cuo-wu/" class="text-gray-700 dark:text-gray-200 border-b-2 border-dotted border-gray-200 dark:border-gray-400 dark:hover:border-gray-200 hover:border-gray-600 transition-all duration-100">
-          记一次练习题错误
-        </a>
-      </h2>
-      <div class="mb-4 text-xs text-gray-500">2020-05-04</div>
-      <div class="mb-4 text-gray-500 dark:text-gray-300">
-        题目：
-寻找某两个数相除，其结果 离黄金分割点 0.618最近
-分母和分子不能同时为偶数
-分母和分子 取值范围在[1-20]
-原本的代码：
-double min = 20;
-double result;
-double dif;
-double...
-      </div>
-      <a href="https://ygwbert.github.io/post/ji-yi-ci-lian-xi-ti-cuo-wu/" class="btn">
-        Read more
-      </a>
+    <div class="footer-info">
+        Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
     </div>
-    
-  </div>
-
-  <div class="p-8 border-b border-gray-200 dark:border-gray-700 flex relative overflow-hidden flex-col md:flex-row animated fadeIn">
-    
-    <div class="flex-1 order-2 md:order-1">
-      <h2 class="text-2xl font-semibold mb-4">
-        <a href="https://ygwbert.github.io/post/tips2/" class="text-gray-700 dark:text-gray-200 border-b-2 border-dotted border-gray-200 dark:border-gray-400 dark:hover:border-gray-200 hover:border-gray-600 transition-all duration-100">
-          学习小tips（2）
-        </a>
-      </h2>
-      <div class="mb-4 text-xs text-gray-500">2019-03-07</div>
-      <div class="mb-4 text-gray-500 dark:text-gray-300">
-        1、C++中的静态变量：类不同对象占用不同的内存，因此，每个对象包含的变量是各自独立互斥的，而静态变量是属于这一个类所有对象共同拥有的变量，静态成员变量必须在类声明的外部初始化，type class::name = value，被任意访问修...
-      </div>
-      <a href="https://ygwbert.github.io/post/tips2/" class="btn">
-        Read more
-      </a>
+    <div>
+        Theme by <a href="https://imhanjie.com/" target="_blank">imhanjie</a>, Powered by <a
+                href="https://github.com/getgridea/gridea" target="_blank">Gridea | <a href="https://ygwbert.github.io//atom.xml" target="_blank">RSS</a></a>
     </div>
-    
-  </div>
+</div>
 
-  <div class="p-8 border-b border-gray-200 dark:border-gray-700 flex relative overflow-hidden flex-col md:flex-row animated fadeIn">
-    
-    <div class="flex-1 order-2 md:order-1">
-      <h2 class="text-2xl font-semibold mb-4">
-        <a href="https://ygwbert.github.io/post/xue-xi-xiao-tips/" class="text-gray-700 dark:text-gray-200 border-b-2 border-dotted border-gray-200 dark:border-gray-400 dark:hover:border-gray-200 hover:border-gray-600 transition-all duration-100">
-          学习小tips
-        </a>
-      </h2>
-      <div class="mb-4 text-xs text-gray-500">2019-03-02</div>
-      <div class="mb-4 text-gray-500 dark:text-gray-300">
-        1、bin文件夹，binary的缩写，代表可执行的二进制文件，dll、exe格式；
-lib文件夹为库文件，lib格式
-src文件夹，源代码文件夹
-2、jre：java运行环境，java runtime environment，若仅仅要运行j...
-      </div>
-      <a href="https://ygwbert.github.io/post/xue-xi-xiao-tips/" class="btn">
-        Read more
-      </a>
-    </div>
-    
-  </div>
-
-  <div class="p-8 border-b border-gray-200 dark:border-gray-700 flex relative overflow-hidden flex-col md:flex-row animated fadeIn">
-    
-    <div class="flex-1 order-2 md:order-1">
-      <h2 class="text-2xl font-semibold mb-4">
-        <a href="https://ygwbert.github.io/post/java-ji-zhu-ji-qi-ying-yong-ke-cheng-bi-ji/" class="text-gray-700 dark:text-gray-200 border-b-2 border-dotted border-gray-200 dark:border-gray-400 dark:hover:border-gray-200 hover:border-gray-600 transition-all duration-100">
-          java技术及其应用课程笔记
-        </a>
-      </h2>
-      <div class="mb-4 text-xs text-gray-500">2018-04-16</div>
-      <div class="mb-4 text-gray-500 dark:text-gray-300">
-        1、静态方法
-在调用其他类的函数时，若函数为非静态函数，则必须先实例化一个对象后，通过对象来调用该函数，否则报错，静态函数则可以不必实例化直接调用，用类名调用。
-调用静态方法则不需要、无法指定也无法使用receiver。Java语言中的类不...
-      </div>
-      <a href="https://ygwbert.github.io/post/java-ji-zhu-ji-qi-ying-yong-ke-cheng-bi-ji/" class="btn">
-        Read more
-      </a>
-    </div>
-    
-  </div>
-  
-      </div>
-
-      
-      <footer class="py-12 text-center px-4 md:px-0" v-pre>
-  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
-</footer>
+<script>
+    hljs.initHighlightingOnLoad()
+</script>
 
     </div>
-  </div>
-  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-  <script src="https://ygwbert.github.io//media/scripts/main.js"></script>
+</div>
 </body>
 </html>

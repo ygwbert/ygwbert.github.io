@@ -1,156 +1,291 @@
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="utf-8"/>
+<meta name="description" content=""/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>ygwbert</title>
-<link rel="shortcut icon" href="https://ygwbert.github.io//favicon.ico">
-<link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css">
-<link rel="stylesheet" href="https://ygwbert.github.io//media/css/tailwind.css">
+<link rel="shortcut icon" href="https://ygwbert.github.io//favicon.ico?v=1588941620421">
+<link href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.css" rel="stylesheet">
 <link rel="stylesheet" href="https://ygwbert.github.io//styles/main.css">
-<link rel="alternate" type="application/atom+xml" title="ygwbert - Atom Feed" href="https://ygwbert.github.io//atom.xml">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-    
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dart.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/go.min.js"></script>
+<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
 
-  <meta name="description" content="In the middle of difficulty lies opportunity" />
+<!-- DEMO JS -->
+<!--<script src="media/scripts/index.js"></script>-->
+
+
+
 </head>
 <body>
-  <div class="antialiased flex flex-col min-h-screen" id="app">
-
-    <div class="nav py-3 md:py-8 fixed w-full z-10 bg-gray-50 dark:bg-gray-700 transition-all duration-300" :class="{ 'scroll': scrolled }">
-  <div class="flex justify-end px-4">
-    <div class="w-8 h-8 flex justify-center items-center rounded-full md:hidden" @click="showMenu = !showMenu">
-      <i class="ri-close-line" v-show="showMenu"></i>
-      <i class="ri-menu-3-line" v-show="!showMenu"></i>
+<div class="main gt-bg-theme-color-first">
+    <div class="main-content">
+        <nav class="navbar navbar-expand-lg">
+    <div class="navbar-brand">
+        <img class="user-avatar" src="/images/avatar.png" alt="头像">
+        <div class="site-name gt-c-content-color-first">
+            ygwbert
+        </div>
     </div>
-  </div>
-  <nav class="max-w-4xl w-full mx-auto text-center flex flex-col md:flex-row justify-center md:block" :class="`${ showMenu ? 'block' : 'hidden' }`">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars gt-c-content-color-first" style="font-size: 18px"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="navbar-nav mr-auto" style="text-align: center">
+            
+                <div class="nav-item">
+                    
+                        <a href="/" class="menu gt-a-link">
+                            首页
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/archives" class="menu gt-a-link">
+                            归档
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/tags" class="menu gt-a-link">
+                            标签
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/post/about" class="menu gt-a-link">
+                            关于
+                        </a>
+                    
+                </div>
+            
+        </div>
+    </div>
+</nav>
+
+        
+
+<div class="archives-container">
     
-      <a href="/" target="" class="py-2 md:py-1 px-4 mx-4 inline-flex transition font-semibold rounded dark:hover:bg-gray-600 hover:bg-gray-200">
-        首页
-      </a>
+        <h2 class="year gt-c-cotent-color-first">2020</h2>
+        
+            
+                <article class="post">
+                    <a href="https://ygwbert.github.io/post/shi-qi-os/">
+                        <div class="post-title gt-c-content-color-first">
+                            <small><b>2020-05-08&nbsp;&nbsp;·&nbsp;&nbsp;</b></small>
+                            【拾起】OS
+                        </div>
+                    </a>
+                </article>
+            
+        
+            
+                <article class="post">
+                    <a href="https://ygwbert.github.io/post/java-xiang-xia-zhuan-xing-de-yi-yi/">
+                        <div class="post-title gt-c-content-color-first">
+                            <small><b>2020-05-07&nbsp;&nbsp;·&nbsp;&nbsp;</b></small>
+                            Java向下转型的意义
+                        </div>
+                    </a>
+                </article>
+            
+        
+            
+                <article class="post">
+                    <a href="https://ygwbert.github.io/post/java-lei-lei-xing-chuan-can/">
+                        <div class="post-title gt-c-content-color-first">
+                            <small><b>2020-05-05&nbsp;&nbsp;·&nbsp;&nbsp;</b></small>
+                            java 类类型传参
+                        </div>
+                    </a>
+                </article>
+            
+        
+            
+                <article class="post">
+                    <a href="https://ygwbert.github.io/post/idea-bi-ji/">
+                        <div class="post-title gt-c-content-color-first">
+                            <small><b>2020-05-05&nbsp;&nbsp;·&nbsp;&nbsp;</b></small>
+                            IDEA笔记
+                        </div>
+                    </a>
+                </article>
+            
+        
+            
+                <article class="post">
+                    <a href="https://ygwbert.github.io/post/ji-yi-ci-lian-xi-ti-cuo-wu/">
+                        <div class="post-title gt-c-content-color-first">
+                            <small><b>2020-05-04&nbsp;&nbsp;·&nbsp;&nbsp;</b></small>
+                            记一次练习题错误
+                        </div>
+                    </a>
+                </article>
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
     
-      <a href="/archives" target="" class="py-2 md:py-1 px-4 mx-4 inline-flex transition font-semibold rounded dark:hover:bg-gray-600 hover:bg-gray-200">
-        归档
-      </a>
+        <h2 class="year gt-c-cotent-color-first">2019</h2>
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+                <article class="post">
+                    <a href="https://ygwbert.github.io/post/tips2/">
+                        <div class="post-title gt-c-content-color-first">
+                            <small><b>2019-03-07&nbsp;&nbsp;·&nbsp;&nbsp;</b></small>
+                            学习小tips（2）
+                        </div>
+                    </a>
+                </article>
+            
+        
+            
+                <article class="post">
+                    <a href="https://ygwbert.github.io/post/xue-xi-xiao-tips/">
+                        <div class="post-title gt-c-content-color-first">
+                            <small><b>2019-03-02&nbsp;&nbsp;·&nbsp;&nbsp;</b></small>
+                            学习小tips
+                        </div>
+                    </a>
+                </article>
+            
+        
+            
+        
+            
+        
+            
+        
     
-      <a href="/tags" target="" class="py-2 md:py-1 px-4 mx-4 inline-flex transition font-semibold rounded dark:hover:bg-gray-600 hover:bg-gray-200">
-        标签
-      </a>
+        <h2 class="year gt-c-cotent-color-first">2018</h2>
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+                <article class="post">
+                    <a href="https://ygwbert.github.io/post/c/">
+                        <div class="post-title gt-c-content-color-first">
+                            <small><b>2018-05-01&nbsp;&nbsp;·&nbsp;&nbsp;</b></small>
+                            C/C++教科书基础练习（2）
+                        </div>
+                    </a>
+                </article>
+            
+        
+            
+                <article class="post">
+                    <a href="https://ygwbert.github.io/post/ccjiao-ke-shu-ji-chu-lian-xi/">
+                        <div class="post-title gt-c-content-color-first">
+                            <small><b>2018-04-30&nbsp;&nbsp;·&nbsp;&nbsp;</b></small>
+                            C/C++教科书基础练习（1）
+                        </div>
+                    </a>
+                </article>
+            
+        
+            
+                <article class="post">
+                    <a href="https://ygwbert.github.io/post/java-ji-zhu-ji-qi-ying-yong-ke-cheng-bi-ji/">
+                        <div class="post-title gt-c-content-color-first">
+                            <small><b>2018-04-16&nbsp;&nbsp;·&nbsp;&nbsp;</b></small>
+                            java技术及其应用课程笔记
+                        </div>
+                    </a>
+                </article>
+            
+        
     
-      <a href="/post/about" target="" class="py-2 md:py-1 px-4 mx-4 inline-flex transition font-semibold rounded dark:hover:bg-gray-600 hover:bg-gray-200">
-        关于
-      </a>
-    
-    <a href="https://ygwbert.github.io//atom.xml" target="_blank" class="py-2 md:py-1 px-4 mx-4 inline-flex transition font-semibold rounded dark:hover:bg-gray-600 hover:bg-gray-200">
-      RSS
-    </a>
-  </nav>
 </div>
 
-    <div class="max-w-4xl w-full mx-auto pt-32">
-      <div class="py-8 shadow-box bg-white dark:bg-gray-600 border-gray-300 rounded-none md:rounded-lg -mx-1 md:mx-0 md:px-0">
-        
-          <div class="px-8 pb-5 flex relative overflow-hidden">
-            
-            <div class="flex-1">
-              <a href="https://ygwbert.github.io/post/shi-qi-os/" class="text-gray-700 dark:text-gray-200 border-b-2 border-dotted border-gray-200 dark:border-gray-400 dark:hover:border-gray-200 hover:border-gray-600 transition-all duration-100">
-                【拾起】OS
-              </a>
-            </div>
-          </div>
-        
-          <div class="px-8 pb-5 flex relative overflow-hidden">
-            
-            <div class="flex-1">
-              <a href="https://ygwbert.github.io/post/java-xiang-xia-zhuan-xing-de-yi-yi/" class="text-gray-700 dark:text-gray-200 border-b-2 border-dotted border-gray-200 dark:border-gray-400 dark:hover:border-gray-200 hover:border-gray-600 transition-all duration-100">
-                Java向下转型的意义
-              </a>
-            </div>
-          </div>
-        
-          <div class="px-8 pb-5 flex relative overflow-hidden">
-            
-            <div class="flex-1">
-              <a href="https://ygwbert.github.io/post/java-lei-lei-xing-chuan-can/" class="text-gray-700 dark:text-gray-200 border-b-2 border-dotted border-gray-200 dark:border-gray-400 dark:hover:border-gray-200 hover:border-gray-600 transition-all duration-100">
-                java 类类型传参
-              </a>
-            </div>
-          </div>
-        
-          <div class="px-8 pb-5 flex relative overflow-hidden">
-            
-            <div class="flex-1">
-              <a href="https://ygwbert.github.io/post/idea-bi-ji/" class="text-gray-700 dark:text-gray-200 border-b-2 border-dotted border-gray-200 dark:border-gray-400 dark:hover:border-gray-200 hover:border-gray-600 transition-all duration-100">
-                IDEA笔记
-              </a>
-            </div>
-          </div>
-        
-          <div class="px-8 pb-5 flex relative overflow-hidden">
-            
-            <div class="flex-1">
-              <a href="https://ygwbert.github.io/post/ji-yi-ci-lian-xi-ti-cuo-wu/" class="text-gray-700 dark:text-gray-200 border-b-2 border-dotted border-gray-200 dark:border-gray-400 dark:hover:border-gray-200 hover:border-gray-600 transition-all duration-100">
-                记一次练习题错误
-              </a>
-            </div>
-          </div>
-        
-          <div class="px-8 pb-5 flex relative overflow-hidden">
-            
-            <div class="flex-1">
-              <a href="https://ygwbert.github.io/post/tips2/" class="text-gray-700 dark:text-gray-200 border-b-2 border-dotted border-gray-200 dark:border-gray-400 dark:hover:border-gray-200 hover:border-gray-600 transition-all duration-100">
-                学习小tips（2）
-              </a>
-            </div>
-          </div>
-        
-          <div class="px-8 pb-5 flex relative overflow-hidden">
-            
-            <div class="flex-1">
-              <a href="https://ygwbert.github.io/post/xue-xi-xiao-tips/" class="text-gray-700 dark:text-gray-200 border-b-2 border-dotted border-gray-200 dark:border-gray-400 dark:hover:border-gray-200 hover:border-gray-600 transition-all duration-100">
-                学习小tips
-              </a>
-            </div>
-          </div>
-        
-          <div class="px-8 pb-5 flex relative overflow-hidden">
-            
-            <div class="flex-1">
-              <a href="https://ygwbert.github.io/post/c/" class="text-gray-700 dark:text-gray-200 border-b-2 border-dotted border-gray-200 dark:border-gray-400 dark:hover:border-gray-200 hover:border-gray-600 transition-all duration-100">
-                C/C++教科书基础练习（2）
-              </a>
-            </div>
-          </div>
-        
-          <div class="px-8 pb-5 flex relative overflow-hidden">
-            
-            <div class="flex-1">
-              <a href="https://ygwbert.github.io/post/ccjiao-ke-shu-ji-chu-lian-xi/" class="text-gray-700 dark:text-gray-200 border-b-2 border-dotted border-gray-200 dark:border-gray-400 dark:hover:border-gray-200 hover:border-gray-600 transition-all duration-100">
-                C/C++教科书基础练习（1）
-              </a>
-            </div>
-          </div>
-        
-          <div class="px-8 pb-5 flex relative overflow-hidden">
-            
-            <div class="flex-1">
-              <a href="https://ygwbert.github.io/post/java-ji-zhu-ji-qi-ying-yong-ke-cheng-bi-ji/" class="text-gray-700 dark:text-gray-200 border-b-2 border-dotted border-gray-200 dark:border-gray-400 dark:hover:border-gray-200 hover:border-gray-600 transition-all duration-100">
-                java技术及其应用课程笔记
-              </a>
-            </div>
-          </div>
-        
-      </div>
+        <div class="pagination-container">
+    
+    
+</div>
 
-      
-      <footer class="py-12 text-center px-4 md:px-0" v-pre>
-  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
-</footer>
+
+        <div class="site-footer gt-c-content-color-first">
+    <div class="slogan gt-c-content-color-first">In the middle of difficulty lies opportunity</div>
+    <div class="social-container">
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
     </div>
-  </div>
-  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-  <script src="https://ygwbert.github.io//media/scripts/main.js"></script>
+    <div class="footer-info">
+        Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+    </div>
+    <div>
+        Theme by <a href="https://imhanjie.com/" target="_blank">imhanjie</a>, Powered by <a
+                href="https://github.com/getgridea/gridea" target="_blank">Gridea | <a href="https://ygwbert.github.io//atom.xml" target="_blank">RSS</a></a>
+    </div>
+</div>
+
+<script>
+    hljs.initHighlightingOnLoad()
+</script>
+
+    </div>
+</div>
 </body>
 </html>
