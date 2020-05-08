@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ygwbert.github.io/</id>
     <title>ygwbert</title>
-    <updated>2020-05-06T16:59:08.402Z</updated>
+    <updated>2020-05-08T11:54:47.621Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ygwbert.github.io/"/>
     <link rel="self" href="https://ygwbert.github.io/atom.xml"/>
@@ -10,6 +10,40 @@
     <logo>https://ygwbert.github.io/images/avatar.png</logo>
     <icon>https://ygwbert.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, ygwbert</rights>
+    <entry>
+        <title type="html"><![CDATA[【拾起】OS]]></title>
+        <id>https://ygwbert.github.io/post/shi-qi-os/</id>
+        <link href="https://ygwbert.github.io/post/shi-qi-os/">
+        </link>
+        <updated>2020-05-08T11:23:53.000Z</updated>
+        <content type="html"><![CDATA[<p>1、进程映像/进程实体，进程上下文环境（process context），包含了PCB、程序代码段、执行所需数据、使用工作区等组成。<br>
+PCB<br>
+2、Linux  ：一次调用fork()函数会复制父进程创建一个子进程，并返回给父进程一个值（即子进程的pid），同时返回给子进程一个值0，返回-1创建失败。<br>
+若想创建n个进程，以下为错误写法<br>
+for( i = 0; i &lt; n; i++){<br>
+fork();<br>
+}<br>
+上述操作会创建(2^n)-1个进程，每复制一次，子进程会把父进程代码段复制，从而i=0有一个进程，i=1时有两个进程同时争抢CPU，i = 2有4个进程，以此类推，所以加上判断条件(fork() == 0)，只有子进程条件为TRUE，而后立即break。<br>
+for( i = 0; i &lt; n; i++){<br>
+pid = fork();<br>
+if(pid == 0)<br>
+break;<br>
+}</p>
+<p>3、Linux：进程的虚拟地址空间，操作系统内核位于最高地址空间，进程的虚拟地址空间中，堆向低地址生长，栈向高地址空间生长，</p>
+<p>4、虚拟地址空间的好处：1）进程和进程之间被隔离，互斥，无法互相访问更改引发错误； 2）以最佳方式“扩大”了内存，实际上是利用调度算法不停地在磁盘和内存中切换；3）方便编译器、操作系统安排实际的地址分布，可以用连续的虚拟地址去访问不连续的物理地址中的内容<br>
+5、页、段、段页式管理</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Java向下转型的意义]]></title>
+        <id>https://ygwbert.github.io/post/java-xiang-xia-zhuan-xing-de-yi-yi/</id>
+        <link href="https://ygwbert.github.io/post/java-xiang-xia-zhuan-xing-de-yi-yi/">
+        </link>
+        <updated>2020-05-07T13:50:01.000Z</updated>
+        <content type="html"><![CDATA[<p>向上转型实现多态，一个父类引用通过改变其指向可以调用不同的子类方法体<br>
+向下转型</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[java 类类型传参]]></title>
         <id>https://ygwbert.github.io/post/java-lei-lei-xing-chuan-can/</id>
@@ -100,6 +134,55 @@
 ]]></content>
     </entry>
     <entry>
+        <title type="html"><![CDATA[学习小tips（2）]]></title>
+        <id>https://ygwbert.github.io/post/tips2/</id>
+        <link href="https://ygwbert.github.io/post/tips2/">
+        </link>
+        <updated>2019-03-07T03:33:40.000Z</updated>
+        <content type="html"><![CDATA[<p>1、C++中的静态变量：类不同对象占用不同的内存，因此，每个对象包含的变量是各自独立互斥的，而静态变量是属于这一个类所有对象共同拥有的变量，静态成员变量必须在类声明的外部初始化，type class::name = value，被任意访问修饰符修饰的静态变量皆可以在类外进行初始化，但是它的内存是在初始化的时候才会被分配，不是在类声明或创建对象时分配。 静态成员变量不占用对象的内存，而是在所有对象之外开辟内存。</p>
+<p>C++中使用匿名对象，开辟内存后，不会回收内存，因此写多个匿名对象容易引发内存泄漏</p>
+<p>2、单例模式初步：<br>
+1）懒汉式，懒加载，类加载时不会实例化对象，不会启动构造函数，等到要运用的时候再实例化对象，所以启动时很快，用的时候若构造函数内有太多内容就会很慢</p>
+<pre><code>public class Item{
+    private Item(){
+
+    }
+    private static Item l ;
+    public static Item getInstance(){
+        if(l == null){
+            l = new Item();
+        }
+        return l;
+    }
+}
+</code></pre>
+<p>2）饿汉式，立即加载，类加载时就会实例化对象，不管用不用得到都会进行实例化，所以启动可能会很慢</p>
+<pre><code>public class Hero{
+    private Hero(){  //要点一，私有化构造函数
+    }
+
+    private static Hero h = new Hero(); //要点二，静态属性指向实例
+
+    public static Hero getInstance(){ //要点三，静态方法返回静态属性
+        return h;
+    }
+}
+</code></pre>
+<p>实际开发中看业务需求，若开始时有充分的启动和初始化时间就用饿汉式</p>
+<p>3、<br>
+（1）向上转型时，父类引用指向了子类对象，在内存中实际上只会指向子类中跟父类共同拥有的成员变量和成员方法，子类其他的成员被“隐藏”了，相当于“瘦身”，而再次强制将父类引用转换为子类引用时（向下转型），这个引用就能指向那些子类独有的成员了<br>
+向上转型的作用：实现多态<br>
+Person类，<br>
+Man， Woman extends Person，且Man类和Woman类都有共同的一个方法dance，但方法体不同，则可以通过Person p引用指向不同的子类对象从而调用不同方法体的方法<br>
+Person p = new Man(); p.dance();<br>
+P = new Woman();<br>
+这种写法易于程序扩展<br>
+（2）向下转型，<br>
+public interface electronics(){</p>
+<p>}</p>
+]]></content>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[学习小tips]]></title>
         <id>https://ygwbert.github.io/post/xue-xi-xiao-tips/</id>
         <link href="https://ygwbert.github.io/post/xue-xi-xiao-tips/">
@@ -161,39 +244,8 @@ println(3+4+&quot;abc&quot;);  输出7abc</p>
 第三步最后执行方法体内的内容。<br>
 构造方法/构造器存在的意义是构造一个完整的对象，所以该对象的类中各种属性都会被初始化。<br>
 <img src="https://ygwbert.github.io//post-images/1588781469930.png" alt="" loading="lazy"></p>
-<p>21、</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Hello Gridea]]></title>
-        <id>https://ygwbert.github.io/post/hello-gridea/</id>
-        <link href="https://ygwbert.github.io/post/hello-gridea/">
-        </link>
-        <updated>2018-12-11T16:00:00.000Z</updated>
-        <summary type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
-<!-- more -->
-<p><a href="https://github.com/getgridea/gridea">Github</a><br>
-<a href="https://gridea.dev/">Gridea 主页</a><br>
-<a href="http://fehey.com/">示例网站</a></p>
-<h2 id="特性">特性👇</h2>
-<p>📝  你可以使用最酷的 <strong>Markdown</strong> 语法，进行快速创作</p>
-<p>🌉  你可以给文章配上精美的封面图和在文章任意位置插入图片</p>
-<p>🏷️  你可以对文章进行标签分组</p>
-<p>📋  你可以自定义菜单，甚至可以创建外部链接菜单</p>
-<p>💻  你可以在 <strong>Windows</strong>，<strong>MacOS</strong> 或 <strong>Linux</strong> 设备上使用此客户端</p>
-<p>🌎  你可以使用 <strong>𝖦𝗂𝗍𝗁𝗎𝖻 𝖯𝖺𝗀𝖾𝗌</strong> 或 <strong>Coding Pages</strong> 向世界展示，未来将支持更多平台</p>
-<p>💬  你可以进行简单的配置，接入 <a href="https://github.com/gitalk/gitalk">Gitalk</a> 或 <a href="https://github.com/SukkaW/DisqusJS">DisqusJS</a> 评论系统</p>
-<p>🇬🇧  你可以使用<strong>中文简体</strong>或<strong>英语</strong></p>
-<p>🌁  你可以任意使用应用内默认主题或任意第三方主题，强大的主题自定义能力</p>
-<p>🖥  你可以自定义源文件夹，利用 OneDrive、百度网盘、iCloud、Dropbox 等进行多设备同步</p>
-<p>🌱 当然 <strong>Gridea</strong> 还很年轻，有很多不足，但请相信，它会不停向前 🏃</p>
-<p>未来，它一定会成为你离不开的伙伴</p>
-<p>尽情发挥你的才华吧！</p>
-<p>😘 Enjoy~</p>
+<p>21、软件设计：面向对象编程 =&gt;设计功能模块（设计模式+算法）=&gt; 框架内体现（多种设计模式） =&gt;架构（服务器集群）<br>
+先用语言进行编程，然后用语言写出各种功能模块，将功能模块集成在框架内，框架形成架构</p>
 ]]></content>
     </entry>
     <entry>

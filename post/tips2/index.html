@@ -9,14 +9,14 @@
   <meta name="keywords" content="">
   <meta name="description" content="">
   <meta name="author" content="kveln">
-  <title>java 类类型传参 | ygwbert</title>
+  <title>学习小tips（2） | ygwbert</title>
   <link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
   <!-- <link href="https://ygwbert.github.io//media/css/bootstrap.min.css" rel="stylesheet"> -->
   <!--  <link href="https://ygwbert.github.io//media/css/all.min.css" rel="stylesheet" type="text/css"> -->
   <link href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
   <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-  <link rel="alternate" type="application/rss+xml" title="java 类类型传参 | ygwbert » Feed" href="https://ygwbert.github.io//atom.xml">
+  <link rel="alternate" type="application/rss+xml" title="学习小tips（2） | ygwbert » Feed" href="https://ygwbert.github.io//atom.xml">
   <link rel="stylesheet"href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/styles/androidstudio.min.css">
   <link href="https://ygwbert.github.io//styles/main.css" rel="stylesheet">
   <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
@@ -25,8 +25,8 @@
   <script>hljs.initHighlightingOnLoad();</script>
   
 
-    <meta property="og:description" content="java 类类型传参"/>
-    <meta property="og:url" content="https://ygwbert.github.io/post/java-lei-lei-xing-chuan-can/"/>
+    <meta property="og:description" content="学习小tips（2）"/>
+    <meta property="og:url" content="https://ygwbert.github.io/post/tips2/"/>
     <meta property="og:locale" content="zh-CN"/>
     <meta property="og:type" content="website"/>
     <meta property="og:site_name" content="ygwbert"/>
@@ -80,13 +80,13 @@
           <div class="post-heading">
           	<span class="tags">
           	 
-            <a href="https://ygwbert.github.io/tag/tBASGojHY/" class="tag">java</a>
+            <a href="https://ygwbert.github.io/tag/tdV-3dADm/" class="tag">notebook</a>
             
         </span>
-            <h1>java 类类型传参</h1>
+            <h1>学习小tips（2）</h1>
             <span class="meta">
             	Posted on
-              2020-05-05，1 min read
+              2019-03-07，3 min read
             </span>
           </div>
         </div>
@@ -99,51 +99,53 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
-          <pre><code>public class Hero {
-       
-    String name; //姓名
-       
-    float hp; //血量
-       
-    float armor; //护甲
-       
-    int moveSpeed; //移动速度
-    
-    public Hero(){
-    	
-    }
-    
-    public Hero(String name,float hp){
-    	this.name = name;
-        this.hp = hp;
-    }
+          <p>1、C++中的静态变量：类不同对象占用不同的内存，因此，每个对象包含的变量是各自独立互斥的，而静态变量是属于这一个类所有对象共同拥有的变量，静态成员变量必须在类声明的外部初始化，type class::name = value，被任意访问修饰符修饰的静态变量皆可以在类外进行初始化，但是它的内存是在初始化的时候才会被分配，不是在类声明或创建对象时分配。 静态成员变量不占用对象的内存，而是在所有对象之外开辟内存。</p>
+<p>C++中使用匿名对象，开辟内存后，不会回收内存，因此写多个匿名对象容易引发内存泄漏</p>
+<p>2、单例模式初步：<br>
+1）懒汉式，懒加载，类加载时不会实例化对象，不会启动构造函数，等到要运用的时候再实例化对象，所以启动时很快，用的时候若构造函数内有太多内容就会很慢</p>
+<pre><code>public class Item{
+    private Item(){
 
-    //复活
-    public void revive(Hero h){
-    	h = new Hero(&quot;提莫&quot;,383);
     }
-
-    public static void main(String[] args) {
-        Hero teemo =  new Hero(&quot;提莫&quot;,383);
-        
-        //受到400伤害，挂了
-        teemo.hp = teemo.hp - 400;
-        
-        teemo.revive(teemo);
-        
-        //问题： System.out.println(teemo.hp); 输出多少？ 怎么理解？
-        
+    private static Item l ;
+    public static Item getInstance(){
+        if(l == null){
+            l = new Item();
+        }
+        return l;
     }
-     
 }
 </code></pre>
-<p>hp仍为负数，因为teemo在作为实参传到h时，有一个动作h=teemo；表示h指向teemo引用所指向的对象，但teemo仍然指向这个负数hp的对象，而后在方法中，形参h又指向了一个新的对象，调用完函数后该对象就“销毁”</p>
+<p>2）饿汉式，立即加载，类加载时就会实例化对象，不管用不用得到都会进行实例化，所以启动可能会很慢</p>
+<pre><code>public class Hero{
+    private Hero(){  //要点一，私有化构造函数
+    }
+
+    private static Hero h = new Hero(); //要点二，静态属性指向实例
+
+    public static Hero getInstance(){ //要点三，静态方法返回静态属性
+        return h;
+    }
+}
+</code></pre>
+<p>实际开发中看业务需求，若开始时有充分的启动和初始化时间就用饿汉式</p>
+<p>3、<br>
+（1）向上转型时，父类引用指向了子类对象，在内存中实际上只会指向子类中跟父类共同拥有的成员变量和成员方法，子类其他的成员被“隐藏”了，相当于“瘦身”，而再次强制将父类引用转换为子类引用时（向下转型），这个引用就能指向那些子类独有的成员了<br>
+向上转型的作用：实现多态<br>
+Person类，<br>
+Man， Woman extends Person，且Man类和Woman类都有共同的一个方法dance，但方法体不同，则可以通过Person p引用指向不同的子类对象从而调用不同方法体的方法<br>
+Person p = new Man(); p.dance();<br>
+P = new Woman();<br>
+这种写法易于程序扩展<br>
+（2）向下转型，<br>
+public interface electronics(){</p>
+<p>}</p>
 
           
           <p class="next-post">下一篇：
-            <a href="https://ygwbert.github.io/post/idea-bi-ji/">
+            <a href="https://ygwbert.github.io/post/xue-xi-xiao-tips/">
               <span class="post-title">
-                IDEA笔记&rarr;
+                学习小tips&rarr;
               </span>
             </a>
           </p>

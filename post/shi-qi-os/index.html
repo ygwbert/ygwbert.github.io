@@ -9,14 +9,14 @@
   <meta name="keywords" content="">
   <meta name="description" content="">
   <meta name="author" content="kveln">
-  <title>java 类类型传参 | ygwbert</title>
+  <title>【拾起】OS | ygwbert</title>
   <link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
   <!-- <link href="https://ygwbert.github.io//media/css/bootstrap.min.css" rel="stylesheet"> -->
   <!--  <link href="https://ygwbert.github.io//media/css/all.min.css" rel="stylesheet" type="text/css"> -->
   <link href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
   <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-  <link rel="alternate" type="application/rss+xml" title="java 类类型传参 | ygwbert » Feed" href="https://ygwbert.github.io//atom.xml">
+  <link rel="alternate" type="application/rss+xml" title="【拾起】OS | ygwbert » Feed" href="https://ygwbert.github.io//atom.xml">
   <link rel="stylesheet"href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/styles/androidstudio.min.css">
   <link href="https://ygwbert.github.io//styles/main.css" rel="stylesheet">
   <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
@@ -25,8 +25,8 @@
   <script>hljs.initHighlightingOnLoad();</script>
   
 
-    <meta property="og:description" content="java 类类型传参"/>
-    <meta property="og:url" content="https://ygwbert.github.io/post/java-lei-lei-xing-chuan-can/"/>
+    <meta property="og:description" content="【拾起】OS"/>
+    <meta property="og:url" content="https://ygwbert.github.io/post/shi-qi-os/"/>
     <meta property="og:locale" content="zh-CN"/>
     <meta property="og:type" content="website"/>
     <meta property="og:site_name" content="ygwbert"/>
@@ -80,13 +80,13 @@
           <div class="post-heading">
           	<span class="tags">
           	 
-            <a href="https://ygwbert.github.io/tag/tBASGojHY/" class="tag">java</a>
+            <a href="https://ygwbert.github.io/tag/9mALkm7Vf/" class="tag">operating system</a>
             
         </span>
-            <h1>java 类类型传参</h1>
+            <h1>【拾起】OS</h1>
             <span class="meta">
             	Posted on
-              2020-05-05，1 min read
+              2020-05-08，2 min read
             </span>
           </div>
         </div>
@@ -99,51 +99,28 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
-          <pre><code>public class Hero {
-       
-    String name; //姓名
-       
-    float hp; //血量
-       
-    float armor; //护甲
-       
-    int moveSpeed; //移动速度
-    
-    public Hero(){
-    	
-    }
-    
-    public Hero(String name,float hp){
-    	this.name = name;
-        this.hp = hp;
-    }
-
-    //复活
-    public void revive(Hero h){
-    	h = new Hero(&quot;提莫&quot;,383);
-    }
-
-    public static void main(String[] args) {
-        Hero teemo =  new Hero(&quot;提莫&quot;,383);
-        
-        //受到400伤害，挂了
-        teemo.hp = teemo.hp - 400;
-        
-        teemo.revive(teemo);
-        
-        //问题： System.out.println(teemo.hp); 输出多少？ 怎么理解？
-        
-    }
-     
-}
-</code></pre>
-<p>hp仍为负数，因为teemo在作为实参传到h时，有一个动作h=teemo；表示h指向teemo引用所指向的对象，但teemo仍然指向这个负数hp的对象，而后在方法中，形参h又指向了一个新的对象，调用完函数后该对象就“销毁”</p>
+          <p>1、进程映像/进程实体，进程上下文环境（process context），包含了PCB、程序代码段、执行所需数据、使用工作区等组成。<br>
+PCB<br>
+2、Linux  ：一次调用fork()函数会复制父进程创建一个子进程，并返回给父进程一个值（即子进程的pid），同时返回给子进程一个值0，返回-1创建失败。<br>
+若想创建n个进程，以下为错误写法<br>
+for( i = 0; i &lt; n; i++){<br>
+fork();<br>
+}<br>
+上述操作会创建(2^n)-1个进程，每复制一次，子进程会把父进程代码段复制，从而i=0有一个进程，i=1时有两个进程同时争抢CPU，i = 2有4个进程，以此类推，所以加上判断条件(fork() == 0)，只有子进程条件为TRUE，而后立即break。<br>
+for( i = 0; i &lt; n; i++){<br>
+pid = fork();<br>
+if(pid == 0)<br>
+break;<br>
+}</p>
+<p>3、Linux：进程的虚拟地址空间，操作系统内核位于最高地址空间，进程的虚拟地址空间中，堆向低地址生长，栈向高地址空间生长，</p>
+<p>4、虚拟地址空间的好处：1）进程和进程之间被隔离，互斥，无法互相访问更改引发错误； 2）以最佳方式“扩大”了内存，实际上是利用调度算法不停地在磁盘和内存中切换；3）方便编译器、操作系统安排实际的地址分布，可以用连续的虚拟地址去访问不连续的物理地址中的内容<br>
+5、页、段、段页式管理</p>
 
           
           <p class="next-post">下一篇：
-            <a href="https://ygwbert.github.io/post/idea-bi-ji/">
+            <a href="https://ygwbert.github.io/post/java-xiang-xia-zhuan-xing-de-yi-yi/">
               <span class="post-title">
-                IDEA笔记&rarr;
+                Java向下转型的意义&rarr;
               </span>
             </a>
           </p>
