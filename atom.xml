@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ygwbert.github.io/</id>
     <title>ygwbert</title>
-    <updated>2020-05-08T11:54:47.621Z</updated>
+    <updated>2020-05-08T12:24:40.751Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ygwbert.github.io/"/>
     <link rel="self" href="https://ygwbert.github.io/atom.xml"/>
@@ -111,25 +111,24 @@ break;<br>
 <p>分母和分子不能同时为偶数<br>
 分母和分子 取值范围在[1-20]</p>
 <p>原本的代码：</p>
-<pre><code>double min = 20;
-        double result;
-        double dif;
-        double a = 1,b = 1;
-        for(int i = 1; i &lt;= 20; i++){
-            for(int j = i; j &lt;= 20; j++){
-                if(j%2 == 0 &amp;&amp; i%2 == 0)
-                    continue;    //原本这里写成了break               //break是结束掉所有循环，而continue是结束本次循环
-                result = (double)i/(double)j;
-                dif = Math.abs(result - 0.618);
-                if(dif &lt; min) {
-                    min = dif;
-                    a = i;
-                    b = j;
-                }
-            }
-        }
-        System.out.println(&quot;最接近0.618的是&quot; + a + &quot;除以&quot; + b + &quot;，商为&quot; + a/b + &quot;与0.618差为&quot; + min);
-</code></pre>
+<p>double min = 20;<br>
+double result;<br>
+double dif;<br>
+double a = 1,b = 1;<br>
+for(int i = 1; i &lt;= 20; i++){<br>
+for(int j = i; j &lt;= 20; j++){<br>
+if(j%2 == 0 &amp;&amp; i%2 == 0)<br>
+continue;    //原本这里写成了break               //break是结束掉所有循环，而continue是结束本次循环<br>
+result = (double)i/(double)j;<br>
+dif = Math.abs(result - 0.618);<br>
+if(dif &lt; min) {<br>
+min = dif;<br>
+a = i;<br>
+b = j;<br>
+}<br>
+}<br>
+}<br>
+System.out.println(&quot;最接近0.618的是&quot; + a + &quot;除以&quot; + b + &quot;，商为&quot; + a/b + &quot;与0.618差为&quot; + min);</p>
 <p>一定要细心，break将会跳出内层for循环的本轮所有循环，这显然不对，应该用continue只跳这一次循环。</p>
 ]]></content>
     </entry>
