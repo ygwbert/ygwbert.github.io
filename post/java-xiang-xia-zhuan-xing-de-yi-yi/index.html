@@ -86,7 +86,7 @@
             <h1>Java向下转型的意义</h1>
             <span class="meta">
             	Posted on
-              2020-05-07，1 min read
+              2020-05-07，2 min read
             </span>
           </div>
         </div>
@@ -100,7 +100,29 @@
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <p>向上转型实现多态，一个父类引用通过改变其指向可以调用不同的子类方法体<br>
-向下转型</p>
+向下转型：泛型编程，很多时候需要将很多不同类别元素丢到一个集合里去，并在这个集合类中统一对这个集合里的各种不同类的元素进行处理，向上转型可以确保某类实例通过类类型传参进到集合类方法中，但随之带来的是该实例自带的特有的类方法丢失，此时再向下转型就很方便的“找回”了属于自己类的方法。</p>
+<p>例如购物车类型、java各种集合类。</p>
+<pre><code>import java.util.ArrayList;
+import java.util.List;
+
+
+public class ShopCar {  //购物车类用来加各种电子产品
+    private List&lt;Electronics&gt; mlist = new ArrayList&lt;Electronics&gt;();
+    public void add(Electronics electronics){  //子类在调用这个函数时，类类型传参自动向上转型
+        mlist.add(electronics);
+    }
+
+    public int getSize(){
+        return mlist.size();
+    }
+
+    public Electronics getListItem(int index){
+        return mlist.get(index);   //返回索引指定处的元素
+    }
+}
+
+
+</code></pre>
 
           
           <p class="next-post">下一篇：

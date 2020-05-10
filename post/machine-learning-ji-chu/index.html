@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html>
   <head>
       <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -9,14 +9,14 @@
   <meta name="keywords" content="">
   <meta name="description" content="">
   <meta name="author" content="kveln">
-  <title>ygwbert</title>
+  <title>Machine Learning基础 | ygwbert</title>
   <link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
   <!-- <link href="https://ygwbert.github.io//media/css/bootstrap.min.css" rel="stylesheet"> -->
   <!--  <link href="https://ygwbert.github.io//media/css/all.min.css" rel="stylesheet" type="text/css"> -->
   <link href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
   <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-  <link rel="alternate" type="application/rss+xml" title="ygwbert » Feed" href="https://ygwbert.github.io//atom.xml">
+  <link rel="alternate" type="application/rss+xml" title="Machine Learning基础 | ygwbert » Feed" href="https://ygwbert.github.io//atom.xml">
   <link rel="stylesheet"href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/styles/androidstudio.min.css">
   <link href="https://ygwbert.github.io//styles/main.css" rel="stylesheet">
   <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
@@ -25,9 +25,15 @@
   <script>hljs.initHighlightingOnLoad();</script>
   
 
+    <meta property="og:description" content="Machine Learning基础"/>
+    <meta property="og:url" content="https://ygwbert.github.io/post/machine-learning-ji-chu/"/>
+    <meta property="og:locale" content="zh-CN"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:site_name" content="ygwbert"/>
   </head>
   <body>
-     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  	<!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     <div class="container">
       <a class="navbar-brand" href="https://ygwbert.github.io/">ygwbert</a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -65,52 +71,72 @@
       </div>
     </div>
   </nav>
+  <!-- Page Header -->
   <header class="masthead" style="background-image: url('https://ygwbert.github.io//media/images/home-bg.jpg')">
     <div class="overlay"></div>
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
-          <div class="site-heading">
-            <h1>ygwbert</h1>
-            <span class="subheading">In the middle of difficulty lies opportunity</span>
+          <div class="post-heading">
+          	<span class="tags">
+          	 
+        </span>
+            <h1>Machine Learning基础</h1>
+            <span class="meta">
+            	Posted on
+              2020-05-09，1 min read
+            </span>
           </div>
         </div>
       </div>
     </div>
   </header>
-      <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-md-10 mx-auto">
-       
-        <div class="post-preview">
-          <a href="https://ygwbert.github.io/post/java-ji-zhu-ji-qi-ying-yong-ke-cheng-bi-ji/">
-            <h2 class="post-title">
-              java技术及其应用课程笔记
-            </h2>
+
+  <!-- Post Content -->
+  <article>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <p>1、范数，数学定义为矩阵范数，为一个将矩阵从线性空间转变到实数域的一个函数，记为|| · ||，满足</p>
+<p>2、L1范数为矩阵各元素的绝对值之和，L1范数用于特征选择，让 特征系数变为0，L1可以让矩阵稀疏化（即尽可能多地出现零，过滤掉没用的特征），L2范数就是欧氏距离的在矩阵上的扩展，可以防止过拟，</p>
+<p>3、拉普拉斯矩阵，符号图正则化项</p>
+
+          
+          <p class="next-post">下一篇：
+            <a href="https://ygwbert.github.io/post/shi-qi-os/">
+              <span class="post-title">
+                【拾起】OS&rarr;
+              </span>
             </a>
-            <h3 class="post-subtitle">
-              
-            </h3>
-          <p class="post-meta">
-             <span class="time">2018-04-16</span>
-             <span>,</span>
-             <span class="post-stats">6 min read</span>
-            </p>
+          </p>
+        
+        <div class="comment">
+          
+          
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<div id="gitalk-container"></div>
+<script>
+  var gitalk = new Gitalk({
+    clientID: 'c6e2de812cbe4f9e5452',
+    clientSecret: 'fcf0354fadd429f924218db44b4feaf9095b078d',
+    repo: 'blogtalk',
+    owner: 'ygwbert',
+    admin: ['ygwbert'],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+  gitalk.render('gitalk-container')
+</script>
+
+          
+          
+        
         </div>
-        <hr>
-        <div class="clearfix">
-        </div>
-        
-        
-        <a class="btn btn-primary float-left" href="https://ygwbert.github.io/">&larr; 上一页</a>
-        
-        
       </div>
     </div>
-  </div>
-
-  
-    <!-- Footer -->
+  </article>
+ <!-- Footer -->
   <footer>
     <div class="container">
       <div class="row">
@@ -190,3 +216,4 @@
   })(this));</script>
   </body>
 </html>
+
