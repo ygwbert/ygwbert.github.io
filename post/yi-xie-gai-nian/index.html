@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta name="referrer" content="never">
+<meta name="keywords" content="">
+<meta name="description" content="欢迎访问[YGWBERT]的个人博客">
+<meta name="author" content="kveln">
+<title>C语言tips | YGWBERT</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css">
+<link href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
+<link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+<link
+  href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+  rel='stylesheet' type='text/css'>
+<link rel="alternate" type="application/rss+xml" title="C语言tips | YGWBERT » Feed"
+  href="https://ygwbert.github.io/atom.xml">
+<link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/styles/androidstudio.min.css">
+<link href="https://ygwbert.github.io/styles/main.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/850552586/ericamcdn@0.1/css/live2d.css">
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+  <meta property="og:description" content="C语言tips" />
+  <meta property="og:url" content="https://ygwbert.github.io/post/yi-xie-gai-nian/" />
+  <meta property="og:locale" content="zh-CN" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="YGWBERT" />
+  <!-- <script src="../assets/styles/scripts/tocScript.js"></script> -->
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="https://ygwbert.github.io">YGWBERT</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+      data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+      aria-label="Toggle navigation">
+      Menu
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/">首页</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/archives">归档</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/tags">标签</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/about">关于</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          <div class="gridea-search-container">
+            <form id="gridea-search-form" style="position: relative" data-update="1712480787077"
+              action="/search/index.html">
+              <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+              <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  <!-- Page Header -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="https://ygwbert.github.io">YGWBERT</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+      data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+      aria-label="Toggle navigation">
+      Menu
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/">首页</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/archives">归档</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/tags">标签</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/about">关于</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          <div class="gridea-search-container">
+            <form id="gridea-search-form" style="position: relative" data-update="1712480787077"
+              action="/search/index.html">
+              <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+              <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<header class="masthead" style="background-image: url('https://ygwbert.github.io/media/images/home-bg.jpg')">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        
+          <!-- 没Title为其他页面Header -->
+          
+            <!-- 没Title并且有headerType为Post：文章Header -->
+            <div class="post-heading">
+              <span class="tags">
+                
+                <a href="https://ygwbert.github.io/tag/6Ye4qPW94/" class="tag">概念</a>
+                
+                <a href="https://ygwbert.github.io/tag/pfO_KyffX/" class="tag">C</a>
+                
+              </span>
+              <h1>C语言tips</h1>
+              <span class="meta">
+                Posted on
+                2020-04-07，4 min read
+              </span>
+            </div>
+          
+        
+      </div>
+    </div>
+  </div>
+</header>
+  <!-- Post Content -->
+  <article id="post-content-article">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto post-content-container">
+          
+          <p>1、透传参数：<br>
+数据透传，底层数据透传，指底层不需要对参数进行检查或什么操作，只负责将参数传递给另一端底层，检查或其他操作由上层进行<br>
+2、strlen返回值为size_t类型，即unsigned int<br>
+3、预处理命令<br>
+预处理命令本身不是C语言的组成部分，不能被直接编译，在预处理过后就不会存在预处理命令了，之后再被编译，得到可执行目标代码<br>
+4、C语言预处理功能：宏定义、文件包含、条件编译<br>
+有参宏，相当于函数，提高效率<br>
+5、条件编译<br>
+大工程中，大部分代码类似，但小部分因为硬件版本不同需要不同的编译，使用条件编译大大增加可移植性<br>
+6、空类型指针void*只存储一个地址值，没有类型，不能直接作为右值赋值其他类型指针，需要显式转换，</p>
+<pre><code class="language-c">Int a
+Int *p = &amp;a;
+Void *s = p;  //地址值赋值给空类型指针，合法
+p = s；//不合法
+P = (int *)s;//ok
+</code></pre>
+<p>7、#pragma   para  ，因参数不同而对编译器下不同命令，不同的编译器命令不一样，需要自己去看对应编译器的命令<br>
+1）#pragma once，类似于 #ifndef  宏名   #def  宏名  #ednif<br>
+2）#pragma message(&quot;要打印的消息&quot;)，在编译器执行的时候打印，不会再结果中输出<br>
+3）#pragma pack(i)    让编译器按i字节对齐，用于让结构体成员紧密排列在内存</p>
+<p>8、跨文件共享变量方法<br>
+在同名头文件中声明这个变量，并且用extern修饰，在同名源代码文件中定义并初始化这个变量<br>
+想要调用的函数中包含该头文件，现在可直接使用</p>
+<p>9、结构体在内存中排列更紧密的方法<br>
+#pragma pack(1)  让结构体在内存中相对于结构体首个变量按1字节对齐，节省内存，勿忘恢复字节排序值  #pragma pack()</p>
+<p>10、<img src="https://ygwbert.github.io/post-images/1712471499797.png" alt="" loading="lazy"></p>
+<p>11、<img src="https://ygwbert.github.io/post-images/1712471583331.png" alt="" loading="lazy"></p>
+<p>12、Const char * ptr,   表示*ptr所代表的内容是const，不可更改，但是可以：<br>
+1）、重新赋值ptr改变其指向<br>
+2）、ptr所指向的内容是一个非const的变量，可以通过该变量来改变值</p>
+<pre><code class="language-c">      Const char *p = &quot;sssss&quot;;
+       char str[] = &quot;tttttttt&quot;;
+       p = str;
+</code></pre>
+<p>而Char* const ptr;定义一个char*类型常数指针，指针的指向不可更改，但是指向的内容可以改</p>
+<p>13、C编程如何进行文件读取<br>
+1）、系统调用，用dos的dir函数<br>
+2）、头文件&lt;io.h&gt;中的findfirst，findnext函数，返回文件句柄<br>
+3）、头文件&lt;dirent.h&gt;中的opendir、readdir函数<br>
+14、双感叹号，!! n，非零变为0，0还是0</p>
+<p>15、do while(0)的妙用<br>
+在宏定义中，能让要执行的语句成为一个不可分割的整体，即代码基础块，如if else语句中，可以让语句接在if后指挥执行一次，这样的代码在linux内核代码中很常见，因为可移植性好<br>
+冗余的错误处理代码，可以代替goto语句，而用do{ break;  }    while(0)，使得break之后跳出执行后面的错误处理代码，而不用不安全的goto</p>
+<p>16、float类型数据运算很慢，需要用int，这就是产测流程中所有计算都为int类型的原因</p>
+
+          <div class="toc-container"></div>
+          
+          <hr />
+          <p class="next-post">下一篇：
+            <a href="https://ygwbert.github.io/post/visual-studio-tips/">
+              <span class="post-title">
+                Visual Studio Tips&rarr;
+              </span>
+            </a>
+          </p>
+          
+          <div class="comment" style="text-align: center;">
+            
+
+            
+            
+            <script src='https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js'></script>
+
+<style>
+	div#vcomments{
+		width:100%;
+		max-width: 1000px;
+		padding: 2.5%
+	}
+</style>
+
+
+	<div id="vcomments"></div>
+
+<script>
+	new Valine({
+		el: '#vcomments',
+		appId: 'CsWiwAk9Dicr6XLmCTlCh8aT-gzGzoHsz',
+		appKey: 'aCDhAZyPOOdK5P0hgUnpfaLq',
+		avatar: 'monsterid',
+		pageSize: 5,
+		recordIp: true,
+		placeholder: 'Just Go Go',
+		visitor: false,
+	});
+</script>
+
+            
+          </div>
+        </div>
+      </div>
+  </article>
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <ul class="list-inline text-center">
+            
+            
+            <li class="list-inline-item">
+              <a href="https://github.com/ygwbert" target="_blank">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+              <!-- <li class="list-inline-item">
+              <a href="https://ygwbert.github.io/atom.xml" target="_blank">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+              </li> -->
+          </ul>
+          <p class="copyright text-muted">Copyright &copy;<span>YGWBERT</span><br><a href="https://github.com/getgridea/gridea" class="Themeinfo">Powered by Gridea</a></p>
+        </div>
+      </div>
+    </div>
+   </footer>
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+  <!-- <script src="https://ygwbert.github.io/media/scripts/bootstrap.bundle.min.js"></script> -->
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://cdn.jsdelivr.net/gh/Alanrk/clean-cdn@1.0/scripts/clean-blog.min.js"></script>
+  <!-- <script src="https://ygwbert.github.io/media/scripts/clean-blog.min.js"></script> -->
+  <script src="//instant.page/3.0.0" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+  <style type="text/css">a.back_to_top{text-decoration:none;position:fixed;bottom:40px;right:30px;background:#f0f0f0;height:40px;width:40px;border-radius:50%;line-height:36px;font-size:18px;text-align:center;transition-duration:.5s;transition-propety:background-color;display:none}a.back_to_top span{color:#888}a.back_to_top:hover{cursor:pointer;background:#dfdfdf}a.back_to_top:hover span{color:#555}@media print,screen and(max-width:580px){.back_to_top{display:none!important}}</style>
+<a id="back_to_top" href="#" class="back_to_top">
+  <span>▲</span></a>
+<script>$(document).ready((function(_this) {
+    return function() {
+      var bt;
+      bt = $('#back_to_top');
+      if ($(document).width() > 480) {
+        $(window).scroll(function() {
+          var st;
+          st = $(window).scrollTop();
+          if (st > 30) {
+            return bt.css('display', 'block')
+          } else {
+            return bt.css('display', 'none')
+          }
+        });
+        return bt.click(function() {
+          $('body,html').animate({
+            scrollTop: 0
+          },
+          800);
+          return false
+        })
+      }
+    }
+  })(this));</script>
+  
+  <div id="landlord-parent">
+    <div id="landlord">
+        <div class="message" style="opacity:0"></div>
+        <canvas id="live2d" width="240" height="250" class="live2d"></canvas>
+    </div>
+</div>
+
+<script type="text/javascript">
+    if (/(iPhone|iPad|iPod|iOS|Android)/i.test(navigator.userAgent)) {
+        //移动端
+        console.log("------ 移动端");
+    } else {
+        console.log("------ PC端 " + navigator.userAgent);
+
+        addScript("https://cdn.jsdelivr.net/gh/850552586/ericamcdn@0.1/js/live2d.js", () => {
+            // 加载完成后再loadlive2d
+            loadlive2d("live2d", "https://ygwbert.github.io/media/live2d/assets/hijiki.model.json");
+        });
+
+        var home_Path = "https://ygwbert.github.io/";
+        addScript("https://ygwbert.github.io/media/live2d/js/message.js", () => { });
+    }
+
+    // 插入js文件，完成后callback
+    function addScript(jsfile, callback) {
+        var landlord_parent = document.getElementById("landlord-parent");
+        var script = document.createElement("script");
+        script.type = "text/javascript";
+        script.src = jsfile;
+        landlord_parent.appendChild(script);
+        script.onload = script.onreadystatechange = function () {
+            if (!this.readyState || this.readyState === "loaded" || this.readyState === "complete") {
+                script.onload = script.onreadystatechange = null;
+                if (callback && typeof callback == "function") {
+                    callback(); //window[callback]();如果传递字符串过来 调用window['函数名']() 调用方法
+                }
+            }
+        };
+    }
+</script>
+  
+  <script src="https://ygwbert.github.io/media/scripts/tocScript.js"></script>
+</body>
+
+</html>

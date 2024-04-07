@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta name="referrer" content="never">
+<meta name="keywords" content="">
+<meta name="description" content="欢迎访问[YGWBERT]的个人博客">
+<meta name="author" content="kveln">
+<title>《图像处理基础》（刚萨雷斯）笔记Part1 滤波 | YGWBERT</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css">
+<link href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
+<link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+<link
+  href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+  rel='stylesheet' type='text/css'>
+<link rel="alternate" type="application/rss+xml" title="《图像处理基础》（刚萨雷斯）笔记Part1 滤波 | YGWBERT » Feed"
+  href="https://ygwbert.github.io/atom.xml">
+<link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/styles/androidstudio.min.css">
+<link href="https://ygwbert.github.io/styles/main.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/850552586/ericamcdn@0.1/css/live2d.css">
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+  <meta property="og:description" content="《图像处理基础》（刚萨雷斯）笔记Part1 滤波" />
+  <meta property="og:url" content="https://ygwbert.github.io/post/lesslesstu-xiang-chu-li-ji-chu-greatergreater-gang-sa-lei-si-bi-ji/" />
+  <meta property="og:locale" content="zh-CN" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="YGWBERT" />
+  <!-- <script src="../assets/styles/scripts/tocScript.js"></script> -->
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="https://ygwbert.github.io">YGWBERT</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+      data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+      aria-label="Toggle navigation">
+      Menu
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/">首页</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/archives">归档</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/tags">标签</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/about">关于</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          <div class="gridea-search-container">
+            <form id="gridea-search-form" style="position: relative" data-update="1712480787077"
+              action="/search/index.html">
+              <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+              <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  <!-- Page Header -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="https://ygwbert.github.io">YGWBERT</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+      data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+      aria-label="Toggle navigation">
+      Menu
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/">首页</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/archives">归档</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/tags">标签</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/about">关于</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          <div class="gridea-search-container">
+            <form id="gridea-search-form" style="position: relative" data-update="1712480787077"
+              action="/search/index.html">
+              <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+              <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<header class="masthead" style="background-image: url('https://ygwbert.github.io/media/images/home-bg.jpg')">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        
+          <!-- 没Title为其他页面Header -->
+          
+            <!-- 没Title并且有headerType为Post：文章Header -->
+            <div class="post-heading">
+              <span class="tags">
+                
+                <a href="https://ygwbert.github.io/tag/1MuJw0208/" class="tag">图像处理</a>
+                
+              </span>
+              <h1>《图像处理基础》（刚萨雷斯）笔记Part1 滤波</h1>
+              <span class="meta">
+                Posted on
+                2020-09-13，4 min read
+              </span>
+            </div>
+          
+        
+      </div>
+    </div>
+  </div>
+</header>
+  <!-- Post Content -->
+  <article id="post-content-article">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto post-content-container">
+          
+          <p>一、滤波（空间域滤波）<br>
+1、均值滤波   平滑效果<br>
+2、高斯滤波，消除高斯噪声，可平滑高斯噪声，在频率域是否为<br>
+3、中值滤波，取中值，卷积核内的灰度值排序，取排在中间的那个，可平滑椒盐噪声<br>
+4、边缘提取，<br>
+空间域对图像求微分：对图像求微分，求导，该点的一阶微分为右边或上边的像素点灰度值减去该点灰度值，（所以一阶微分能够算出一边边缘），二阶微分为前一个加上后一个灰度值减去该点灰度值，（二阶微分双边）<br>
+<img src="https://ygwbert.github.io/post-images/1712472287011.png" alt="" loading="lazy"><br>
+1）sobel算子（对边缘定位精度不高，首先二值化是边缘更明显再进行提取）<br>
+Gx，Gy，描述横向纵向梯度变化</p>
+<p>2）roberts算子：<br>
+二阶斜对角算子，因为是二阶，所以卷积面积更小，只有四个像素，因此它能显示出更加细的边缘，三阶卷积核面积更大，所以边缘精度不高</p>
+<p>3）Prewitt算子<br>
+本义为roberts算子的三维扩充，在计算G时，可像sobel一样取梯度的膜，即平方和开平方，也可以在Gx和Gy中选择一个最大的作为梯度值</p>
+<p>4）Log滤波器<br>
+其他算子滤波器的融合<br>
+首先用高斯滤波器平滑图像，再用拉普拉斯算子进行边缘提取，由于拉普拉斯算子对噪声较为敏感，所以先用高斯进行平滑<br>
+5）Cannny算子<br>
+也是其他算子滤波器步骤的融合。（较为经典，最好掌握）<br>
+A、先用高斯平滑，再选择一个边缘检测算子计算，高斯噪声在信号处理领域较为常见，因此它去燥综合效果最好<br>
+B、选择算子检测，一般sobel算子检测<br>
+C、非极大值抑制，由于sobel算子检测出的边缘非常粗，混杂了非边缘点进去，因此，剔除非极大值，极大值意为该点灰度值大于其八连通区域内的其他像素点灰度<br>
+D、双阈值法筛选强边缘和弱边缘，设定一个阈值T1，T2，强度大于T1的为强边缘，大于T2小于T2的为弱边缘，小于T2的不是边缘点，强边缘点直接可以作为边缘点处理，弱边缘点进一步筛选，查找它的八连通区域内是否存在强边缘点，若存在，则弱边缘点就是边缘点（这一步实际就实现了边缘连接），否则不是<br>
+实际使用中，T1：T2 = 2：1</p>
+<pre><code>图像处理较为重要的步骤：去噪，灰度归一化
+</code></pre>
+<p>6）拉普拉斯算子<br>
+锐化即可以用来提取边缘，对噪声较为敏感</p>
+<p>5、其他处理手段<br>
+1）拉普拉斯锐化<br>
+拉普拉斯算子：为X方向和Y方向对该点求二阶微分的结果，最简单的 各向同性微分算子，如下所示，还可扩展为八连通的地方<br>
+【0，-1，0          【1，1，1<br>
+-1，4，-1             1，-8，1<br>
+0，-1，0】           1，1，1】<br>
+当中心系数为正时，拉普拉斯算子卷积过后，灰度突变的像素点处的值会更大更突出，灰度变化平缓的地方拉普拉斯计算过后为0，因此将原图像与拉普拉斯算子计算过后的叠加得到锐化图像</p>
+<p>2）锐化。非锐化mask，首先平滑原图像，得到平滑后的图像，原图像减去平滑后的图像，得到一张只有灰度剧烈变化处才会有灰度值的值，这个为mask，用mask加上原图，即完成了锐化，细节处更增强<br>
+Mask(x,y) = G(x,y) - ave(G(x,y))   //均值滤波平滑<br>
+G(x,y) = G(x,y)+k*mask(x,y)<br>
+当系数k大于1时，为高提升滤波，即细节处。灰度变化比较强烈的地方会得到更大突出<br>
+6、其他概念<br>
+1）梯度图像为，▽f为梯度向量，梯度向量的膜即为梯度图像的灰度值，描述了在正交单位向量方向上的图像像素点的灰度变化<br>
+为加快计算速度，一般取绝对值的和，不做开平方运算</p>
+
+          <div class="toc-container"></div>
+          
+          <hr />
+          <p class="next-post">下一篇：
+            <a href="https://ygwbert.github.io/post/yi-xie-gai-nian/">
+              <span class="post-title">
+                C语言tips&rarr;
+              </span>
+            </a>
+          </p>
+          
+          <div class="comment" style="text-align: center;">
+            
+
+            
+            
+            <script src='https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js'></script>
+
+<style>
+	div#vcomments{
+		width:100%;
+		max-width: 1000px;
+		padding: 2.5%
+	}
+</style>
+
+
+	<div id="vcomments"></div>
+
+<script>
+	new Valine({
+		el: '#vcomments',
+		appId: 'CsWiwAk9Dicr6XLmCTlCh8aT-gzGzoHsz',
+		appKey: 'aCDhAZyPOOdK5P0hgUnpfaLq',
+		avatar: 'monsterid',
+		pageSize: 5,
+		recordIp: true,
+		placeholder: 'Just Go Go',
+		visitor: false,
+	});
+</script>
+
+            
+          </div>
+        </div>
+      </div>
+  </article>
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <ul class="list-inline text-center">
+            
+            
+            <li class="list-inline-item">
+              <a href="https://github.com/ygwbert" target="_blank">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+              <!-- <li class="list-inline-item">
+              <a href="https://ygwbert.github.io/atom.xml" target="_blank">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+              </li> -->
+          </ul>
+          <p class="copyright text-muted">Copyright &copy;<span>YGWBERT</span><br><a href="https://github.com/getgridea/gridea" class="Themeinfo">Powered by Gridea</a></p>
+        </div>
+      </div>
+    </div>
+   </footer>
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+  <!-- <script src="https://ygwbert.github.io/media/scripts/bootstrap.bundle.min.js"></script> -->
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://cdn.jsdelivr.net/gh/Alanrk/clean-cdn@1.0/scripts/clean-blog.min.js"></script>
+  <!-- <script src="https://ygwbert.github.io/media/scripts/clean-blog.min.js"></script> -->
+  <script src="//instant.page/3.0.0" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+  <style type="text/css">a.back_to_top{text-decoration:none;position:fixed;bottom:40px;right:30px;background:#f0f0f0;height:40px;width:40px;border-radius:50%;line-height:36px;font-size:18px;text-align:center;transition-duration:.5s;transition-propety:background-color;display:none}a.back_to_top span{color:#888}a.back_to_top:hover{cursor:pointer;background:#dfdfdf}a.back_to_top:hover span{color:#555}@media print,screen and(max-width:580px){.back_to_top{display:none!important}}</style>
+<a id="back_to_top" href="#" class="back_to_top">
+  <span>▲</span></a>
+<script>$(document).ready((function(_this) {
+    return function() {
+      var bt;
+      bt = $('#back_to_top');
+      if ($(document).width() > 480) {
+        $(window).scroll(function() {
+          var st;
+          st = $(window).scrollTop();
+          if (st > 30) {
+            return bt.css('display', 'block')
+          } else {
+            return bt.css('display', 'none')
+          }
+        });
+        return bt.click(function() {
+          $('body,html').animate({
+            scrollTop: 0
+          },
+          800);
+          return false
+        })
+      }
+    }
+  })(this));</script>
+  
+  <div id="landlord-parent">
+    <div id="landlord">
+        <div class="message" style="opacity:0"></div>
+        <canvas id="live2d" width="240" height="250" class="live2d"></canvas>
+    </div>
+</div>
+
+<script type="text/javascript">
+    if (/(iPhone|iPad|iPod|iOS|Android)/i.test(navigator.userAgent)) {
+        //移动端
+        console.log("------ 移动端");
+    } else {
+        console.log("------ PC端 " + navigator.userAgent);
+
+        addScript("https://cdn.jsdelivr.net/gh/850552586/ericamcdn@0.1/js/live2d.js", () => {
+            // 加载完成后再loadlive2d
+            loadlive2d("live2d", "https://ygwbert.github.io/media/live2d/assets/hijiki.model.json");
+        });
+
+        var home_Path = "https://ygwbert.github.io/";
+        addScript("https://ygwbert.github.io/media/live2d/js/message.js", () => { });
+    }
+
+    // 插入js文件，完成后callback
+    function addScript(jsfile, callback) {
+        var landlord_parent = document.getElementById("landlord-parent");
+        var script = document.createElement("script");
+        script.type = "text/javascript";
+        script.src = jsfile;
+        landlord_parent.appendChild(script);
+        script.onload = script.onreadystatechange = function () {
+            if (!this.readyState || this.readyState === "loaded" || this.readyState === "complete") {
+                script.onload = script.onreadystatechange = null;
+                if (callback && typeof callback == "function") {
+                    callback(); //window[callback]();如果传递字符串过来 调用window['函数名']() 调用方法
+                }
+            }
+        };
+    }
+</script>
+  
+  <script src="https://ygwbert.github.io/media/scripts/tocScript.js"></script>
+</body>
+
+</html>

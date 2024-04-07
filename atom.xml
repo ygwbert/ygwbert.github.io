@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://ygwbert.github.io</id>
+    <title>YGWBERT</title>
+    <updated>2024-04-07T09:06:51.818Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://ygwbert.github.io"/>
+    <link rel="self" href="https://ygwbert.github.io/atom.xml"/>
+    <subtitle>In the middle of difficulty lies opportunity</subtitle>
+    <logo>https://ygwbert.github.io/images/avatar.png</logo>
+    <icon>https://ygwbert.github.io/favicon.ico</icon>
+    <rights>All rights reserved 2024, YGWBERT</rights>
+    <entry>
+        <title type="html"><![CDATA[2 bugs example]]></title>
+        <id>https://ygwbert.github.io/post/2-bugs-example/</id>
+        <link href="https://ygwbert.github.io/post/2-bugs-example/">
+        </link>
+        <updated>2022-06-08T08:54:19.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[C++ tips]]></title>
+        <id>https://ygwbert.github.io/post/c-tips/</id>
+        <link href="https://ygwbert.github.io/post/c-tips/">
+        </link>
+        <updated>2022-04-03T08:35:55.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[版本管理Git指南]]></title>
+        <id>https://ygwbert.github.io/post/ban-ben-guan-li-git-zhi-nan/</id>
+        <link href="https://ygwbert.github.io/post/ban-ben-guan-li-git-zhi-nan/">
+        </link>
+        <updated>2021-12-08T09:04:05.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[安卓指纹源码 part review]]></title>
+        <id>https://ygwbert.github.io/post/an-zhuo-zhi-wen-yuan-ma-part-review/</id>
+        <link href="https://ygwbert.github.io/post/an-zhuo-zhi-wen-yuan-ma-part-review/">
+        </link>
+        <updated>2021-07-08T07:44:46.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Lniux命令相关]]></title>
+        <id>https://ygwbert.github.io/post/lniux-ming-ling-xiang-guan/</id>
+        <link href="https://ygwbert.github.io/post/lniux-ming-ling-xiang-guan/">
+        </link>
+        <updated>2021-04-01T07:33:05.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[电子模组中的某些概念]]></title>
+        <id>https://ygwbert.github.io/post/dian-zi-mo-zu-zhong-de-mou-xie-gai-nian/</id>
+        <link href="https://ygwbert.github.io/post/dian-zi-mo-zu-zhong-de-mou-xie-gai-nian/">
+        </link>
+        <updated>2021-03-09T07:28:10.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[指纹识别与防伪]]></title>
+        <id>https://ygwbert.github.io/post/zhi-wen-shi-bie-yu-fang-wei/</id>
+        <link href="https://ygwbert.github.io/post/zhi-wen-shi-bie-yu-fang-wei/">
+        </link>
+        <updated>2021-01-25T08:29:50.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[傅里叶变化]]></title>
+        <id>https://ygwbert.github.io/post/fu-li-xie-bian-hua/</id>
+        <link href="https://ygwbert.github.io/post/fu-li-xie-bian-hua/">
+        </link>
+        <updated>2021-01-24T07:22:19.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[算法代码规范格式]]></title>
+        <id>https://ygwbert.github.io/post/suan-fa-dai-ma-gui-fan-ge-shi/</id>
+        <link href="https://ygwbert.github.io/post/suan-fa-dai-ma-gui-fan-ge-shi/">
+        </link>
+        <updated>2020-12-26T05:52:37.000Z</updated>
+        <summary type="html"><![CDATA[<p>工作中总结的一些编程规范，都是身边人和自己踩过的坑与血</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>工作中总结的一些编程规范，都是身边人和自己踩过的坑与血</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[将PC安卓源代码烧录到手机上的步骤]]></title>
+        <id>https://ygwbert.github.io/post/jiang-pc-an-zhuo-yuan-dai-ma-shao-lu-dao-shou-ji-shang-de-bu-zou/</id>
+        <link href="https://ygwbert.github.io/post/jiang-pc-an-zhuo-yuan-dai-ma-shao-lu-dao-shou-ji-shang-de-bu-zou/">
+        </link>
+        <updated>2020-09-23T08:24:12.000Z</updated>
+    </entry>
+</feed>
